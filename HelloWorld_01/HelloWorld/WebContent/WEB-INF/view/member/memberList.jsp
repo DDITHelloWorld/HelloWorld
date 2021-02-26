@@ -21,6 +21,7 @@ window.onload = function(){
 <h2>회원 목록 보기</h2>
 <table border="1">
 	<thead>
+	
 		<tr>
 			<td colspan = "4">
 				<input type = "button" id = "addBtn" value = "회원추가">
