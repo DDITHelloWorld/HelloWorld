@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 INDEX VERSION 1.4+C:\Users\PC-11\Desktop\UPLOAD\DDITHelloWorld\HelloWorld_01\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 1977004607.index
 1161265836.index
 2573053519.index
 105394272.index
 824057833.index
+=======
+INDEX VERSION 1.4+C:\Users\PC-18\Documents\GitHub\test01\HelloWorld_01\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+388546784.index
+1003393586.index
+>>>>>>> 217c5a6fbacc270e9b28effc5dfbcc3e96b60c80
