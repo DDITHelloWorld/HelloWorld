@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\Users\PC-11\Desktop\HelloWorld\HelloWorld\.metadata\.plugins\org.eclipse.jdt.core
-1731564416.index
