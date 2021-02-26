@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+C:\Users\PC-18\Documents\GitHub\test01\HelloWorld_01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\529079325.index
+\servletTest2\src
+C:\Users\PC-18\Documents\GitHub\test01\HelloWorld_01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\479091332.index
+\servletTest2\src
+C:\Users\PC-18\Documents\GitHub\test01\HelloWorld_01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1003393586.index
+\HelloWorld\src
+C:\Users\PC-18\Documents\GitHub\test01\HelloWorld_01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\388546784.index
+\HelloWorld\src
