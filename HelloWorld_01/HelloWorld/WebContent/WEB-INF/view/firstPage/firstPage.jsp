@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<html lang="kr">
 
 <head>
 
@@ -21,6 +23,10 @@
   <!-- Custom styles for this template -->
   <link href="../css/coming-soon.min.css" rel="stylesheet">
 
+
+
+
+
 </head>
 
 <body>
@@ -39,8 +45,8 @@
             <h1 class="mb-3">Hello World!</h1>
             <p class="mb-5">여행을 가고 싶으신가요?<br>그럼 바로 로그인하세요!</p>
             
-              <input type="text" class="form-control" placeholder="Enter id..." aria-label="Enter id..." aria-describedby="submit-button"><br>
-              <input type="password" class="form-control" placeholder="Enter password..." aria-label="Enter password..." aria-describedby="submit-button"><br>
+              <input type="text" class="form-control" placeholder="Enter id..." aria-label="Enter id..." aria-describedby="submit-button"/><br>
+              <input type="password" class="form-control" placeholder="Enter password..." aria-label="Enter password..." aria-describedby="submit-button"/><br>
                 <button class="btn btn-secondary" type="button" id="submit-button">로그인</button>&nbsp;&nbsp;&nbsp;
                 <button class="btn btn-secondary" type="button" id="signUp-button">회원가입</button>
           </div>
@@ -69,12 +75,24 @@
     </ul>
   </div>
 
+
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/coming-soon.min.js"></script>
+  <script src="../js/coming-soon.min.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		// 회원 가입 버튼 클릭 처리
+		$("#signUp-button").on("click", function(){
+			location.href = "<%=request.getContextPath()%>/firstPage/member_js.ddit";
+		})
+	})
+</script>
+
+
 
 </body>
 
