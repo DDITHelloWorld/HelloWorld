@@ -1,3 +1,0 @@
-INDEX VERSION 1.4+C:\Users\PC-18\Documents\GitHub\test01\HelloWorld_01\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-388546784.index
-1003393586.index
