@@ -31,7 +31,7 @@ public class URIActionMapper {
 	
 	// 인수값으로 주어진 uri에 맞는 Action객체를 찾아서
 	// 그 Action객체의 인스턴스를 생성해서 반환하는 메서드
-	public static IAction getAcion(String uri) {
+	public static IAction getAction(String uri) {
 		IAction action = null;
 		
 		// 인수값으로 넘어온 uri가 properties파일에 등록된것인지 확ㅇ니
