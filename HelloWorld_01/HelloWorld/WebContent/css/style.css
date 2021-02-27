@@ -102,6 +102,10 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   margin-top: 72px;
 }
 
+#homeicon{
+  height : 35px;	
+  vertical-align: bottom;
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -129,7 +133,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #4169E1;
+  color: #fff;
   text-decoration: none;
 }
 
