@@ -27,54 +27,28 @@ public class WebController extends HttpServlet {
 		
 		// 1. 사용자의 요청 정보 가져오기
 		String uri = req.getRequestURI(); // 전체 요청 URI
-		int uri_a = 0;
-		String uri_aa = "";
 		// 원하는 요청 URI
-		uri_a = uri.lastIndexOf(".");
-		uri_aa = uri.substring(uri_a, req.getContextPath().length());
+		uri = uri.substring(req.getContextPath().length());
 		
-		if(uri_aa == "ddit") { // 페이지 변환 요청이 .ddit로 끝나면 밑의 로직을 실행 아니면 그냥 반환. 
-			uri = uri.substring(req.getContextPath().length());
+		String viewPage = null;
+		IAction action = null;
+		
+		action = URIActionMapper.getAcion(uri);
+		
+		if(action==null) { // 실행할 URI가 없으면 404에러 처리
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		}else {
+			// 실행 부분 ==> 작업 처리 후 view페이지를 받는다.
+			viewPage = action.process(req, resp);
 			
-			String viewPage = null;
-			IAction action = null;
-			
-			action = URIActionMapper.getAcion(uri);
-			
-			if(action==null) { // 실행할 URI가 없으면 404에러 처리
-				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			}else {
-				// 실행 부분 ==> 작업 처리 후 view페이지를 받는다.
-				viewPage = action.process(req, resp);
-				
-				if(viewPage != null) {
-					if(action.isRedirect()) {
-						resp.sendRedirect(req.getContextPath() + viewPage);
-					}else {
-						RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view" + viewPage);
-						rd.forward(req, resp);
-					}
+			if(viewPage != null) {
+				if(action.isRedirect()) {
+					resp.sendRedirect(req.getContextPath() + viewPage);
+				}else {
+					RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view" + viewPage);
+					rd.forward(req, resp);
 				}
 			}
-			
-		}else {
-			resp.sendRedirect(uri);
 		}
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 	}
 }
