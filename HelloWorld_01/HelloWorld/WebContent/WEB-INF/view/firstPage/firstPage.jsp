@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+<<<<<<< HEAD
     <!-- Custom styles for this template -->
     <link href="../css/coming-soon.min.css" rel="stylesheet">
 
@@ -27,6 +28,10 @@
 
 
 
+=======
+  <!-- Custom styles for this template -->
+  <link href="../css/coming-soon.min.css" rel="stylesheet">
+>>>>>>> c0922be4ff17c20b836d5d26a9de5d8e465f2420
 </head>
 
 <body>
