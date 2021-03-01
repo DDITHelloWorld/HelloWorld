@@ -22,11 +22,6 @@
 
   <!-- Custom styles for this template -->
   <link href="../css/coming-soon.min.css" rel="stylesheet">
-
-
-
-
-
 </head>
 
 <body>
