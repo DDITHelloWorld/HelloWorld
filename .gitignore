@@ -1,7 +1,7 @@
 
 # Eclipse
 
-Server
+test01/Server
 *.pydevproject
 .project
 .metadata
