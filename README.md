@@ -30,5 +30,5 @@ PROJECT HELLOWORLD
 
 - ddit → do로 변경
 - .html → .jsp로 변경
-- 머가 안되는걸까
+
 ## TEAMMATES
