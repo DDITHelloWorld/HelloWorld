@@ -6,7 +6,7 @@
 
 		<div class="logo mr-auto">
 			<h1 class="text-light">
-				<a href="../mainPage/mainPage.do"> <img id="homeicon" alt="icon"
+				<a href="index.html"> <img id="homeicon" alt="icon"
 					src="../mainImages/hwicon.png"> <span>Hello, World!</span>
 				</a>
 			</h1>
