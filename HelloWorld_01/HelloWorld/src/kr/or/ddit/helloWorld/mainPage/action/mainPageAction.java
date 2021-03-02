@@ -18,6 +18,8 @@ public class mainPageAction implements IAction {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		
+		
 		return "/mainPage/index.jsp";
 	}
 
