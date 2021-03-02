@@ -12,8 +12,8 @@
 <meta content="" name="keywords">
 
 <!-- Favicons -->
-<link href="../mainImages/hwicon.png" rel="icon">
-<link href="../mainImages/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="../images/hwicon.png" rel="icon">
+<link href="../images/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link
