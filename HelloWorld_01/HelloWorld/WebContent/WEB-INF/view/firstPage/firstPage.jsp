@@ -23,24 +23,6 @@
   <!-- Custom styles for this template -->
   <link href="../css/coming-soon.min.css" rel="stylesheet">
 
-<script>
-
-$(function(){
-	// 버튼을 누를 경우 아이디 비밀번호 입력값 체크 > 
-	// 결과값에 따라 > 셋팅을 해주거나 틀릴경우 alert
-	$('#submit-button').on('click', function(){
-		
-		loginId = $('#loginId').val();
-		loginPassword = $('#loginPassword').val();
-		
-		loginCheck();
-
-	})
-})
-</script>
-
-
-
 </head>
 
 <body>

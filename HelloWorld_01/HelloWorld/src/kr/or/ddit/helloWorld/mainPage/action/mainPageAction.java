@@ -19,6 +19,7 @@ public class mainPageAction implements IAction {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+
 		HttpSession hs = request.getSession();
 		String loginId = (String) hs.getAttribute("loginId");
 		String loginPassword = (String) hs.getAttribute("loginPassword");
@@ -31,5 +32,6 @@ public class mainPageAction implements IAction {
 		} else {
 			return "/mainPage/index.html";
 		}
+
 	}
 }
