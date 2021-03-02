@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src = '../js/helloWorld.js'></script>
 
   <title>Coming Soon - Start Bootstrap Theme</title>
 
@@ -22,6 +23,9 @@
 
   <!-- Custom styles for this template -->
   <link href="../css/coming-soon.min.css" rel="stylesheet">
+
+
+
 
 </head>
 
@@ -84,6 +88,17 @@
 		// 회원 가입 버튼 클릭 처리
 		$("#signUp-button").on("click", function(){
 			location.href = "<%=request.getContextPath()%>/firstPage/member_js.ddit";
+		})
+		
+		// 버튼을 누를 경우 아이디 비밀번호 입력값 체크 > 
+		// 결과값에 따라 > 셋팅을 해주거나 틀릴경우 alert
+		$('#submit-button').on('click', function(){
+		
+		loginId = $('#loginId').val();
+		loginPassword = $('#loginPassword').val();
+		
+		loginCheck();
+
 		})
 	})
 </script>

@@ -4,7 +4,7 @@
 
 loginCheck = function(){
 	$.ajax({
-		url : '/myPage/myPageMain.ddit',
+		url : '/HelloWorld/firstPage/mainPage.ddit',
 		type : 'post',
 		data : {"loginId" : loginId,
 				"loginPassword" : loginPassword
