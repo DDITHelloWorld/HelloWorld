@@ -1,7 +1,7 @@
 
 # Eclipse
 
-
+test01/Server
 *.pydevproject
 .project
 .metadata
@@ -12,7 +12,7 @@ tmp/**/*
 *.bak
 *.swp
 *~.nib
-.classpath
+*.classpath
 .settings/
 .loadpath
 /src/main/resources/rebel.xml
