@@ -17,8 +17,10 @@ public class prodPageAction implements IAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		
-		return "/prodPage/index.html";
+		return "/prodPage/index.jsp";
 	}
 
 }
