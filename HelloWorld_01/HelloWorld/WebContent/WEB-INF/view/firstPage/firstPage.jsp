@@ -23,7 +23,21 @@
   <!-- Custom styles for this template -->
   <link href="../css/coming-soon.min.css" rel="stylesheet">
 
+<script>
 
+$(function(){
+	// 버튼을 누를 경우 아이디 비밀번호 입력값 체크 > 
+	// 결과값에 따라 > 셋팅을 해주거나 틀릴경우 alert
+	$('#submit-button').on('click', function(){
+		
+		loginId = $('#loginId').val();
+		loginPassword = $('#loginPassword').val();
+		
+		loginCheck();
+
+	})
+})
+</script>
 
 
 
@@ -45,9 +59,9 @@
             <h1 class="mb-3">Hello World!</h1>
             <p class="mb-5">여행을 가고 싶으신가요?<br>그럼 바로 로그인하세요!</p>
             
-              <input type="text" class="form-control" placeholder="Enter id..." aria-label="Enter id..." aria-describedby="submit-button"/><br>
-              <input type="password" class="form-control" placeholder="Enter password..." aria-label="Enter password..." aria-describedby="submit-button"/><br>
-                <button class="btn btn-secondary" type="button" id="submit-button">로그인</button>&nbsp;&nbsp;&nbsp;
+              <input id="loginId" name="loginId" type="text" class="form-control" placeholder="Enter id..." aria-label="Enter id..." aria-describedby="submit-button"/><br>
+              <input id="loginPassword" name="loginPassword" type="password" class="form-control" placeholder="Enter password..." aria-label="Enter password..." aria-describedby="submit-button"/><br>
+                <button class="btn btn-secondary" type="submit" id="submit-button">로그인</button>&nbsp;&nbsp;&nbsp;
                 <button class="btn btn-secondary" type="button" id="signUp-button">회원가입</button>
           </div>
         </div>
