@@ -26,33 +26,11 @@ public class WebController extends HttpServlet {
 		 */
 
 		// 1. 사용자의 요청 정보 가져오기
-<<<<<<< HEAD
-		String uri = req.getRequestURI(); // 전체 요청 URI
-		// 원하는 요청 URI
-		uri = uri.substring(req.getContextPath().length());
-		
-		String viewPage = null;
-		IAction action = null;
-		
-		action = URIActionMapper.getAcion(uri);
-		
-		if(action==null) { // 실행할 URI가 없으면 404에러 처리
-			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-		}else {
-			// 실행 부분 ==> 작업 처리 후 view페이지를 받는다.
-			viewPage = action.process(req, resp);
-			
-			if(viewPage != null) {
-				if(action.isRedirect()) {
-					resp.sendRedirect(req.getContextPath() + viewPage);
-				}else {
-					RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view" + viewPage);
-=======
 		String uri = req.getRequestURI();  // 전체요청 URI
-
+		
 		// 원하는 요청 URI
 		uri = uri.substring(req.getContextPath().length());
-
+		
 		String viewPage = null;
 		IAction action = null;
 
@@ -71,7 +49,6 @@ public class WebController extends HttpServlet {
 				}else {
 					RequestDispatcher rd = 
 							req.getRequestDispatcher("/WEB-INF/view" + viewPage);
->>>>>>> 91312fbba9e566e10bb90bda038ea60c2ef65256
 					rd.forward(req, resp);
 				}
 				
