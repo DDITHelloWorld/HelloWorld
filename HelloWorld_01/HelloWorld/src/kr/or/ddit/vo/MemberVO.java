@@ -10,7 +10,6 @@ package kr.or.ddit.vo;
  */
 public class MemberVO {
 	private String mem_id;
-	private String mem_password;
 	private String mem_name;
 	private String mem_tel;
 	private String mem_addr;
@@ -19,14 +18,6 @@ public class MemberVO {
 	// 만약에 생성자를 만들었을 때 반드시 기본 생성자도 같이 만들어준다.
 	// 테이블 많으면 테이블마다 다 VO 있어야 함
 	// 그리고 join을 할 때마다 그릇을 만들어야 할 수도 있음
-
-	public String getMem_password() {
-		return mem_password;
-	}
-	
-	public void setMem_password(String mem_password) {
-		this.mem_password = mem_password;
-	}
 
 	public String getMem_id() {
 		
