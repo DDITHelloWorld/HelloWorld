@@ -464,7 +464,7 @@ section {
 
 .section-title {
   text-align: left;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .section-title h2 {
@@ -477,8 +477,8 @@ section {
 }
 
 .section-title p {
-  padding-bottom: 15px;
-  margin-bottom: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   position: relative;
   font-size: 28px;
   font-weight: 700;
@@ -566,7 +566,17 @@ section {
 }
 
 .clients .owl-dot.active {
-  background-color: #eb5d1e !important;
+  background-color: #4169E1 !important;
+}
+
+.clients .owl-carousel .itme-active{
+	width: 500px;
+	height : auto;
+}
+
+.clients .owl-carousel img{
+	width: 255px;
+	height : auto;
 }
 
 /*--------------------------------------------------------------
