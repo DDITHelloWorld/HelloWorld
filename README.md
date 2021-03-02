@@ -29,6 +29,6 @@ PROJECT HELLOWORLD
 - header_main, header_prod 생성
 
 - ddit → do로 변경
-- html → do로 변경
+- .html → .jsp로 변경
 
 ## TEAMMATES
