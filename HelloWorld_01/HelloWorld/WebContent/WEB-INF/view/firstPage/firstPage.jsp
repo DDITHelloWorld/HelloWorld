@@ -82,7 +82,7 @@
 	$(function(){
 		// 회원 가입 버튼 클릭 처리
 		$("#signUp-button").on("click", function(){
-			location.href = "<%=request.getContextPath()%>/firstPage/member_js.ddit";
+			location.href = "<%=request.getContextPath()%>/firstPage/member_js.do";
 		})
 	})
 </script>
