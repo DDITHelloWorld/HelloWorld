@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+p {
+	box-sizing: border-box;
+}
+
+.p1 {
+	width: 80%;
+	float: left;
+}
+
+.p2 {
+	width: 20%;
+	float: right;
+}
+
+.p3 {
+	clear: both;
+}
+
+button[name=reply] {
+	height: 45px;
+	vertical-align: top;
+}
+
+.panel-heading:hover {
+	background: lightblue;
+}
+
+.pager {
+	width: 150px;
+	float: left;
+	margin: 5px;
+}
+
+.pul {
+	margin-left: 20%;
+}
+
+label {
+	display: inline-block;
+	width: 100px;
+	height: 25px;
+}
+
+.rep {
+	margin: 5px;
+	padding: 5px;
+	background: pink;
+	border: 1px solid gray;
+}
+
+#modifyForm {
+	display: none;
+}
+
+.col-sm-3 {
+	flex: 0 0 0%;
+	max-width: 50%;
+	display: inline-block;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+	padding: 0.5rem 0.5rem;
+	font-size: .875rem;
+	border-radius: .3rem;
+}
+
+.col-sm-2 {
+	-ms-flex: 0 0 16.666667%;
+	flex: 0 0 16.666667%;
+	max-width: 22.666667%;
+}
+
+#idbtn {
+	vertical-align: baseline;
+	margin-top: 20px;
+}
