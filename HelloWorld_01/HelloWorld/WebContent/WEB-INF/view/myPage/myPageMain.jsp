@@ -13,6 +13,6 @@
 </body>
 
     <script language="javascript">
-        window.location.href = "<%=request.getContextPath()%>/myPage/index.ddit"
+        window.location.href = "<%=request.getContextPath()%>/myPage/index.do"
     </script>
 </html>
