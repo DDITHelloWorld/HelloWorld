@@ -15,6 +15,7 @@ public class myPageIndexAction implements IAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("나오나??");
 		return "/myPage/dist/index.html";
 	}
 
