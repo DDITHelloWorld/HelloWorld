@@ -27,6 +27,8 @@
 	 	  형식 : <typeAlias alias = "alias명" type = "클래스의 전체이름"/>
 	  --> 
 	  
+	  <typeAlias alias = "prodVo" type = "kr.or.ddit.vo.ProdVO"></typeAlias>
+	  <typeAlias alias = "attractionVo" type = "kr.or.ddit.vo.AttractionVO"></typeAlias>
 	 <!--  <typeAlias alias = "LprodVo" type = "kr.or.ddit.basic.LprodVO"></typeAlias> -->
 	 
 	 <!-- <typeAlias alias="MemberVo" type="kr.or.ddit.vo.MemberVO"/> -->
@@ -46,6 +48,7 @@
 	 	 형식 : <sqlMap resource = "경로명/파일명.xml"/>
 	  -->
 	 <sqlMap resource = "kr/or/ddit/mapper/mymember.xml"/>
-	 <sqlMap resource = "kr/or/ddit/mapper/firstPage.xml"/>
+<!-- 	 <sqlMap resource = "kr/or/ddit/mapper/firstPage.xml"/> -->
+	 <sqlMap resource = "kr/or/ddit/mapper/prod.xml"/>
 	
  </sqlMapConfig>

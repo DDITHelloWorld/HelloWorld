@@ -21,7 +21,7 @@ public class SqlMapUtil {
 			rd = Resources.getResourceAsReader("sqlMapConfig.xml");
 			smc = SqlMapClientBuilder.buildSqlMapClient(rd);
 			
-		}catch(IOException e) {
+		}catch(Exception e) {
 			throw new RuntimeException("SqlMapClient 객체 생성 실패 - " + e); 
 		} finally {
 			if(rd != null) try { rd.close(); } catch(IOException e) { };

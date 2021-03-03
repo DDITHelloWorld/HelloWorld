@@ -30,6 +30,7 @@ public class WebController extends HttpServlet {
 		System.out.println("WebController에 들어옴.");
 		// 원하는 요청 URI
 		uri = uri.substring(req.getContextPath().length());
+		System.out.println("uri=>" + uri);
 
 		String viewPage = null;
 		IAction action = null;
