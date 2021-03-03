@@ -69,6 +69,23 @@
 .list-group-item{
   font-size: 0.8em;
 }
+.prodNone{
+  text-align: center;
+}
+#area-sub{
+  font-size: 1.8em;
+}
+#prodInsert{
+  float : right;
+  border-radius: 10px;
+  border: 1px solid #4169E1;
+  background: #4169E1;
+  color : white;
+  padding : 8px 21px;
+  font-size: bold;
+  width : 113px;
+  height : 42px;
+}
 </style>
 <script type="text/javascript">
 $(function(){
@@ -85,10 +102,11 @@ $(function(){
 		}else{
 			readProdList2();
 		}
-		
 	});
 	
-	
+	$('#prodInsert').on('click', function(){
+		
+	})
 	
 })
 
@@ -124,8 +142,9 @@ $(function(){
       <div class="col-sm-9 text-left" style="margin:0 auto;"> 
         
         <br>
-        <h3 id = "area-sub">전체 지역</h3>
-        <br>
+        <span id = "area-sub">전체 지역</span>
+        <a id="prodInsert" href="#">상품 등록</a>
+        <br><br>
         <div class = "prodListResult">
         </div>
       </div>
