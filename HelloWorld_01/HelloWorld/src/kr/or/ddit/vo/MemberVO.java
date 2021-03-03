@@ -9,57 +9,141 @@ package kr.or.ddit.vo;
  * 
  */
 public class MemberVO {
-	private String mem_id;
-	private String mem_password;
-	private String mem_name;
-	private String mem_tel;
-	private String mem_addr;
+	private String member_id;
+	private String member_password;
+	private String member_name;
+	private int member_milleage;
+	private int member_point;
+	private int member_authority;
+	private String member_address;
+	private int member_state;
+	private String member_phone;
+	private String member_email;
+	
+	public String getMember_id() {
+		return member_id;
+	}
+
+
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+
+
+
+	public String getMember_password() {
+		return member_password;
+	}
+
+
+
+	public void setMember_password(String member_password) {
+		this.member_password = member_password;
+	}
+
+
+
+	public String getMember_name() {
+		return member_name;
+	}
+
+
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+
+
+
+	public int getMember_milleage() {
+		return member_milleage;
+	}
+
+
+
+	public void setMember_milleage(int member_milleage) {
+		this.member_milleage = member_milleage;
+	}
+
+
+
+	public int getMember_point() {
+		return member_point;
+	}
+
+
+
+	public void setMember_point(int member_point) {
+		this.member_point = member_point;
+	}
+
+
+
+	public int getMember_authority() {
+		return member_authority;
+	}
+
+
+
+	public void setMember_authority(int member_authority) {
+		this.member_authority = member_authority;
+	}
+
+
+
+	public String getMember_address() {
+		return member_address;
+	}
+
+
+
+	public void setMember_address(String member_address) {
+		this.member_address = member_address;
+	}
+
+
+
+	public int getMember_state() {
+		return member_state;
+	}
+
+
+
+	public void setMember_state(int member_state) {
+		this.member_state = member_state;
+	}
+
+
+
+	public String getMember_phone() {
+		return member_phone;
+	}
+
+
+
+	public void setMember_phone(String member_phone) {
+		this.member_phone = member_phone;
+	}
+
+
+
+	public String getMember_email() {
+		return member_email;
+	}
+
+
+
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
+	}
+
+
+
 	private static final String KEY = "a1b2c3d4e5f6g7h8";
 	
 	// 만약에 생성자를 만들었을 때 반드시 기본 생성자도 같이 만들어준다.
 	// 테이블 많으면 테이블마다 다 VO 있어야 함
 	// 그리고 join을 할 때마다 그릇을 만들어야 할 수도 있음
 
-	public String getMem_password() {
-		return mem_password;
-	}
-	
-	public void setMem_password(String mem_password) {
-		this.mem_password = mem_password;
-	}
-
-	public String getMem_id() {
-		
-		return mem_id;
-	}
-
-	public void setMem_id(String mem_id) {
-		this.mem_id = mem_id;
-	}
-
-	public String getMem_name() {
-		return mem_name;
-	}
-
-	public void setMem_name(String mem_name) {
-		this.mem_name = mem_name;
-	}
-
-	public String getMem_tel() {
-		return mem_tel;
-	}
-
-	public void setMem_tel(String mem_tel) {
-		this.mem_tel = mem_tel;
-	}
-
-	public String getMem_addr() {
-		return mem_addr;
-	}
-
-	public void setMem_addr(String mem_addr) {
-		this.mem_addr = mem_addr;
-	}
-	
-	
 }

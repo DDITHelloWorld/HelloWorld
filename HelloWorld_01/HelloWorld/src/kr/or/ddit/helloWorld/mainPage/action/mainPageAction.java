@@ -33,8 +33,8 @@ public class mainPageAction implements IAction {
 		
 		MemberVO memVo = new MemberVO();
 		
-		memVo.setMem_id(loginId);
-		memVo.setMem_password(loginPassword);
+		memVo.setMember_id(loginId);
+		memVo.setMember_password(loginPassword);
 		
 		// String loginId = (String) Session.getAttribute("loginId");
 		// String loginPassword = (String) Session.getAttribute("loginPassword");

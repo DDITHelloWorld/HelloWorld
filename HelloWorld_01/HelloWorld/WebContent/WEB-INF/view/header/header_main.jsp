@@ -6,7 +6,12 @@
 
 		<div class="logo mr-auto">
 			<h1 class="text-light">
+<<<<<<< HEAD
 				<a href = "../header/mainPage.do"><img src="../images/hwicon.png"><span>Hello, World!</span>
+=======
+				<a href="index.html"> <img id="homeicon" alt="icon"
+					src="../images/hwicon.png"> <span>Hello, World!</span>
+>>>>>>> origin/kimbo
 				</a>
 			</h1>
 			<!-- Uncomment below if you prefer to use an image logo -->
@@ -27,6 +32,7 @@
 				<li><a href="#services"><img alt="찜목록" src="../images/heart.png" width="30"></a></li>
 				<li style="margin-top : -7px;"><a href="../myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
 
+				<li class="get-started"><a href="#about">여행시작</a></li>
 			</ul>
 		</nav>
 		<!-- .nav-menu -->
