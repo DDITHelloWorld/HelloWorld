@@ -27,7 +27,8 @@ public class WebController extends HttpServlet {
 
 		// 1. 사용자의 요청 정보 가져오기
 		String uri = req.getRequestURI();  // 전체요청 URI
-		System.out.println("WebController에 들어옴.");
+		
+		
 		// 원하는 요청 URI
 		uri = uri.substring(req.getContextPath().length());
 
@@ -55,9 +56,7 @@ public class WebController extends HttpServlet {
 			}
 		}
 	}
-
 }
-
 /* 0227 실행되는 컨트롤러 */
 
 

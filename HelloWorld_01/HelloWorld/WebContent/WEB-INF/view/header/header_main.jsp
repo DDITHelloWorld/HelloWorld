@@ -6,7 +6,7 @@
 
 		<div class="logo mr-auto">
 			<h1 class="text-light">
-					src="../images/hwicon.png"> <span>Hello, World!</span>
+				<a href = "../header/mainPage.do"><img src="../images/hwicon.png"><span>Hello, World!</span>
 				</a>
 			</h1>
 			<!-- Uncomment below if you prefer to use an image logo -->
@@ -25,7 +25,7 @@
 				<!--           <li class="active"><a href="index.html">Home</a></li> -->
 				<li><a href="#about"><img alt="돋보기" src="../images/search.png" width="25"></a></li>
 				<li><a href="#services"><img alt="찜목록" src="../images/heart.png" width="30"></a></li>
-				<li><a href="../myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
+				<li style="margin-top : -7px;"><a href="../myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
 
 			</ul>
 		</nav>
