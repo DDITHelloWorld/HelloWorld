@@ -22,7 +22,7 @@ public class MemberFormAction implements IAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String memId = request.getParameter("mem_id");
+		String memId = request.getParameter("member_id");
 		System.out.println(memId);
 		
 		IMemberService service = MemberServiceImpl.getInstance();

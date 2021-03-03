@@ -38,6 +38,7 @@ public class WebController extends HttpServlet {
 
 		action = URIActionMapper.getAction(uri);
 		System.out.println("action=>" + action);
+		
 		if(action==null) {  // 실행할 uri가 없으면 404에러 처리
 			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		}else {

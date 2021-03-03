@@ -44,7 +44,7 @@
   ======================================================== -->
 <style type="text/css">
 #empty-space{
-	widt: 100%;
+	width: 100%;
 	height : 150px;
 }
 #region-list{
@@ -103,11 +103,7 @@ $(function(){
 			readProdList2();
 		}
 	});
-	
-	$('#prodInsert').on('click', function(){
 		
-	})
-	
 })
 
 </script>
@@ -143,7 +139,7 @@ $(function(){
         
         <br>
         <span id = "area-sub">전체 지역</span>
-        <a id="prodInsert" href="#">상품 등록</a>
+        <a id="prodInsert" href="<%=request.getContextPath() %>/prod/prodInsertForm.do">상품 등록</a>
         <br><br>
         <div class = "prodListResult">
         </div>

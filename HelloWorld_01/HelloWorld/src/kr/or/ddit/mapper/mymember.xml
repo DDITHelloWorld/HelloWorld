@@ -4,7 +4,6 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace = "mymember">
-	<typeAlias alias="memVo" type="kr.or.ddit.vo.MemberVO"/>
 	
 	<insert id = "insertMember" parameterClass = "memVo">
 		insert into mymember(mem_id, mem_name, mem_tel, mem_addr)
