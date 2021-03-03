@@ -12,7 +12,7 @@ tmp/**/*
 *.bak
 *.swp
 *~.nib
-*.classpath
+.classpath
 .settings/
 .loadpath
 /src/main/resources/rebel.xml
