@@ -21,7 +21,7 @@ public class MemberViewAction implements IAction{
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String memId = request.getParameter("mem_id");
+		String memId = request.getParameter("member_id");
 		
 		IMemberService service = MemberServiceImpl.getInstance();
 		MemberVO memVo = service.getMember(memId);
