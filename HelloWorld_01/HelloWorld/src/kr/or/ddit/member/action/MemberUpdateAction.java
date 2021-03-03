@@ -21,19 +21,19 @@ public class MemberUpdateAction implements IAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String mem_id = request.getParameter("mem_id");
-		String mem_name = request.getParameter("mem_name");
-		String mem_tel = request.getParameter("mem_tel");
-		String mem_addr = request.getParameter("mem_addr");
+		String member_id = request.getParameter("member_id");
+		String member_name = request.getParameter("member_name");
+		String member_phone = request.getParameter("member_phone");
+		String member_addr = request.getParameter("member_addr");
 		
-		System.out.println(mem_id);
-		System.out.println(mem_name);
+		System.out.println(member_id);
+		System.out.println(member_name);
 		
 		MemberVO memVo = new MemberVO();
-		memVo.setMem_id(mem_id);
-		memVo.setMem_name(mem_name);;
-		memVo.setMem_tel(mem_tel);
-		memVo.setMem_addr(mem_addr);
+		memVo.setMember_id(member_id);
+		memVo.setMember_name(member_name);;
+		memVo.setMember_phone(member_phone);
+		memVo.setMember_address(member_addr);
 		
 		IMemberService service = MemberServiceImpl.getInstance();
 		service.updateMember(memVo);

@@ -28,7 +28,7 @@
 	  --> 
 	  
 	 <!--  <typeAlias alias = "LprodVo" type = "kr.or.ddit.basic.LprodVO"></typeAlias> -->
-	 
+	 	<typeAlias alias="memVo" type="kr.or.ddit.vo.MemberVO"/>
 	 <!-- <typeAlias alias="MemberVo" type="kr.or.ddit.vo.MemberVO"/> -->
 	 
 	 <!-- DB와의 연결을 처리하는 부분 -->

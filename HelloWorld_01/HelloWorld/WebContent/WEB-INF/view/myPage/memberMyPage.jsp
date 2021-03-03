@@ -27,6 +27,15 @@
   <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+  
+  <style type="text/css">
+.container{
+	max-width : 94%;
+}
+#outPutMainView{
+	padding: 30px;
+}
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
 <div class="wrapper">
@@ -39,14 +48,14 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="../myPage/myPageMain.do" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
+<!--     SEARCH FORM
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -56,96 +65,31 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
+    	<a class="nav-link" href="#">
+		  <img alt="돋보기" src="../images/search.png" width="25">
+		</a>
       </li>
-      <!-- Notifications Dropdown Menu -->
+    	
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
+    	<a class="nav-link" href="#">
+		  <img alt="찜목록" src="../images/heart.png" width="25">
+		</a>
       </li>
-      <li class="nav-item">
+
+      </li>
+      <li class="nav-item dropdown">
+    	<a class="nav-link" href="#">
+		  <img alt="마이페이지" src="../images/person.png" width="25">
+		</a>
+      </li>
+      
+      
+<!--       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
@@ -155,7 +99,7 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li>
-    </ul>
+ -->    </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -164,7 +108,7 @@
     <!-- Brand Logo -->
     <form action="<%=request.getContextPath() %>/firstPage/mainPage.do" method="post">
     	<a href="#" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../images/hwicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Hello World!</span>
     </a>
     </form>
@@ -177,7 +121,7 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">홍길동님 환영합니다!</a>
+          <a href="#" class="d-block"><%=request.getSession().getAttribute("loginId") %>님 환영합니다!</a>
         </div>
       </div>
 
@@ -201,35 +145,6 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                통계
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 내 정보 관리
@@ -238,36 +153,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../pages/UI/general.html" class="nav-link">
+                <a href="../pages/UI/general.html" id="myInfomationHome" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
+                  <p>내정보 홈</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/UI/icons.html" class="nav-link">
+                <a href="../pages/UI/general.html" id="myInfomationUpdate" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
+                  <p>회원정보 수정</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/UI/buttons.html" class="nav-link">
+                <a href="../pages/UI/icons.html" id="passwordUpdate" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
+                  <p>비밀번호 변경</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../pages/UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li class="nav-item">
+ 
+<!--               <li class="nav-item">
                 <a href="../pages/UI/navbar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Navbar & Tabs</p>
@@ -284,10 +188,10 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ribbons</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
-          <li class="nav-item">
+<!--           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -321,7 +225,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -334,25 +238,32 @@
               <li class="nav-item">
                 <a href="../pages/tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>주문 내역</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../pages/tables/data.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
+                  <p>찜목록</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../pages/tables/jsgrid.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                  <p>내 리뷰</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../pages/tables/jsgrid.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>문의 내역</p>
+                </a>
+              </li>              
+              
             </ul>
           </li>
           <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
+<!--           <li class="nav-item">
             <a href="../pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
@@ -360,7 +271,7 @@
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -432,131 +343,32 @@
               </li>
             </ul>
           </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
+                통계
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="../pages/charts/chartjs.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Login & Register v1
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../pages/examples/login.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Login v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/examples/register.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Register v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/examples/forgot-password.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Forgot Password v1</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/examples/recover-password.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Recover Password v1</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Login & Register v2
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../pages/examples/login-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Login v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/examples/register-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Register v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/examples/forgot-password-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Forgot Password v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../pages/examples/recover-password-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Recover Password v2</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/examples/lockscreen.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
+                  <p>ChartJS</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/examples/legacy-user-menu.html" class="nav-link">
+                <a href="../pages/charts/flot.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Legacy User Menu</p>
+                  <p>Flot</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/examples/language-menu.html" class="nav-link">
+                <a href="../pages/charts/inline.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Language Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/examples/404.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 404</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/examples/500.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 500</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/examples/pace.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pace</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/examples/blank.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="starter.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
+                  <p>Inline</p>
                 </a>
               </li>
             </ul>
@@ -578,10 +390,88 @@
       <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
     </div>
     <div class="tab-content">
-      <div class="tab-empty">
-        <h2 class="display-4">No tab selected!</h2>
-      </div>
-      <div class="tab-loading">
+			<div id="outPutMainView">
+			
+			<!-- 회원정보 탭 -->
+				<div class="container">
+					<h2><br>나의 정보</h2>
+					<p>기본 회원정보</p>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>이름</th>
+								<th>아이디</th>
+								<th>Email</th>
+								<th>휴대전화</th>
+								</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>홍길동</td>
+								<td>bhqhgus2</td>
+								<td>john@example.com</td>
+								<td>010-1111-1111</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<br>
+
+				<!-- 주문내역 부분 -->
+				<div class="container">
+					<h2><br>방문한 여행지</h2>
+					<p>주문 내역</p>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>이름</th>
+								<th>아이디</th>
+								<th>Email</th>
+								<th>휴대전화</th>
+								</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>홍길동</td>
+								<td>bhqhgus2</td>
+								<td>john@example.com</td>
+								<td>010-1111-1111</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<br>
+				
+				<!-- 방문한 여행지 -->
+				<div class="container">
+					<h2><br> </h2>
+					<p>기본 회원정보</p>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>이름</th>
+								<th>아이디</th>
+								<th>Email</th>
+								<th>휴대전화</th>
+								</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>홍길동</td>
+								<td>bhqhgus2</td>
+								<td>john@example.com</td>
+								<td>010-1111-1111</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<br>				
+				
+			</div>
+			<div class="tab-loading">
         <div>
           <h2 class="display-4">Tab is loading <i class="fa fa-sync fa-spin"></i></h2>
         </div>
@@ -640,5 +530,26 @@
 <script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard.js"></script>
+<script src="../js/helloWorld.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$('#myInfomationHome').on('click', function(){
+		openMyInfomationHome();
+	})
+	
+	$('#myInfomationUpdate').on('click', function(){
+		myInfomationUpdate();
+	})
+	
+	$('#passwordUpdate').on('click', function(){
+		passwordUpdate();
+	})
+	
+})
+
+</script>
+
+
 </body>
 </html>
