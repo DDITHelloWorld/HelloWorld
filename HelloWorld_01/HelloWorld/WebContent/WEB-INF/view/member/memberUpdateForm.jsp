@@ -18,29 +18,29 @@
 			<tr>
 				<td>회원 ID</td>
 				<td>
-					<input type = "text" value = <%=memVo.getMem_id() %> disabled>
-					<input type = "hidden" name = "mem_id" id = "mem_id" value = <%=memVo.getMem_id() %>>
+					<input type = "text" value = <%=memVo.getMember_id() %> disabled>
+					<input type = "hidden" name = "mem_id" id = "mem_id" value = <%=memVo.getMember_id() %>>
 					<span id = "idChkResult"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>회원이름</td>
 				<td>
-					<input type = "text" name = "mem_name" id = "mem_name" value = <%=memVo.getMem_name() %>>
+					<input type = "text" name = "mem_name" id = "mem_name" value = <%=memVo.getMember_name() %>>
 					<br>
 				</td>
 			</tr>
 			<tr>
 				<td>전화번호</td>
 				<td>
-					<input type = "text" name = "mem_tel" id = "mem_tel" value = <%=memVo.getMem_tel()%> >
+					<input type = "text" name = "mem_tel" id = "mem_tel" value = <%=memVo.getMember_phone()%> >
 					<br>
 				</td>
 			</tr>
 			<tr>
 				<td>회원주소</td>
 				<td>
-					<input type = "text" name = "mem_addr" id = "mem_addr" value = <%=memVo.getMem_addr() %>>
+					<input type = "text" name = "mem_addr" id = "mem_addr" value = <%=memVo.getMember_address() %>>
 					<br>
 				</td>
 			</tr>

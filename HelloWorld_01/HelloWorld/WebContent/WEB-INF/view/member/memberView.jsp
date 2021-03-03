@@ -42,24 +42,24 @@
 <h2>회원 정보 상세 보기</h2>
 
 	<form id="memberForm" method = "post" action = "<%=request.getContextPath() %>/member/memberInsert.ddit">
-	<input type = "hidden" id ="mem_id" name = "mem_id" value = "<%=memVo.getMem_id() %>">
+	<input type = "hidden" id ="mem_id" name = "mem_id" value = "<%=memVo.getMember_id() %>">
 	
 		<table border = "1">
 			<tr>
 				<td>회원 ID</td>
-				<td><%=memVo.getMem_id() %></td>
+				<td><%=memVo.getMember_id()%></td>
 			</tr>
 			<tr>
 				<td>회원 이름</td>
-				<td><%=memVo.getMem_name() %></td>
+				<td><%=memVo.getMember_name()%></td>
 			</tr>
 			<tr>
 				<td>전화번호</td>
-				<td><%=memVo.getMem_tel() %></td>
+				<td><%=memVo.getMember_phone()%></td>
 			</tr>
 			<tr>
 				<td>회원주소</td>
-				<td><%=memVo.getMem_addr() %></td>
+				<td><%=memVo.getMember_address() %></td>
 			</tr>
 			<tr>
 				<td colspan="2">

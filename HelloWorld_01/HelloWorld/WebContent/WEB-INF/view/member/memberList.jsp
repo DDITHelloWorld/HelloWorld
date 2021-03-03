@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type = "text/javascript">
+
 window.onload = function(){
 	var addBtn = document.getElementById("addBtn");
 	addBtn.onclick = function(){
@@ -45,11 +46,11 @@ window.onload = function(){
 	%>
 		<tr>
 			<td>
-				<a href="<%=request.getContextPath() %>/member/memberView.ddit?mem_id=<%=memVo.getMem_id()%>"><%=memVo.getMem_id() %></a>
+				<a href="<%=request.getContextPath() %>/member/memberView.ddit?mem_id=<%=memVo.getMember_id()%>"><%=memVo.getMember_id() %></a>
 			</td>
-			<td><%=memVo.getMem_name() %></td>
-			<td><%=memVo.getMem_tel() %></td>
-			<td><%=memVo.getMem_addr() %></td>
+			<td><%=memVo.getMember_name() %></td>
+			<td><%=memVo.getMember_phone() %></td>
+			<td><%=memVo.getMember_address() %></td>
 		</tr>
 	<%
 			}
