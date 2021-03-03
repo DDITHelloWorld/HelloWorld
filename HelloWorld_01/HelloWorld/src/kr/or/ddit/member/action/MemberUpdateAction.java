@@ -30,17 +30,11 @@ public class MemberUpdateAction implements IAction {
 		System.out.println(member_name);
 		
 		MemberVO memVo = new MemberVO();
-<<<<<<< HEAD
-		memVo.setMember_id(mem_id);
-		memVo.setMember_name(mem_name);;
-		memVo.setMember_phone(mem_tel);
-		memVo.setMember_address(mem_addr);
-=======
+
 		memVo.setMember_id(member_id);
 		memVo.setMember_name(member_name);;
 		memVo.setMember_phone(member_phone);
 		memVo.setMember_address(member_addr);
->>>>>>> f3247130062a7fb3a802378b82c82b6293ff62f2
 		
 		IMemberService service = MemberServiceImpl.getInstance();
 		service.updateMember(memVo);
