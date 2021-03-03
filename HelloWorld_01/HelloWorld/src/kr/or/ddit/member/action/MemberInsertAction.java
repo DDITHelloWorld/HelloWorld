@@ -31,10 +31,10 @@ public class MemberInsertAction implements IAction{
 		String mem_addr = request.getParameter("mem_addr");
 	
 		MemberVO memVo = new MemberVO();
-		memVo.setMem_id(mem_id);
-		memVo.setMem_name(mem_name);;
-		memVo.setMem_tel(mem_tel);
-		memVo.setMem_addr(mem_addr);
+		memVo.setMember_id(mem_id);
+		memVo.setMember_name(mem_name);
+		memVo.setMember_phone(mem_tel);
+		memVo.setMember_address(mem_addr);
 		
 		IMemberService service = MemberServiceImpl.getInstance();
 		service.insertMember(memVo); // DB에 insert하기
