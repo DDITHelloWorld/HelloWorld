@@ -20,7 +20,7 @@ public class MemberDeleteAction implements IAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 					
 		request.setCharacterEncoding("utf-8");
-		String mem_id = request.getParameter("mem_id");
+		String mem_id = request.getParameter("member_id");
 		IMemberService service = MemberServiceImpl.getInstance();
 		service.deleteMember(mem_id);
 		return "/member/memberList.ddit";
