@@ -11,9 +11,12 @@ loginCheck = function(){
 			    },
 		dataType : 'json',
 		success : function(res){
-			// loginId = $('#loginId').val();
+//			if(loginId = res.val && loginPassword = res.val){
+//				alert("로그인 성공!")
+//			}else{
+//				alert("로그인 실패")
+//			}
 			// loginPassword = $('#loginPassword').val();
-			alert("로그인 성공!")
 		},
 		error : function(xhr){
 			alert("상태 : " + xhr.status);

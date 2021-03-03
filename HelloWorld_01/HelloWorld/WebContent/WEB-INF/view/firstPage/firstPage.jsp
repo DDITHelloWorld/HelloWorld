@@ -10,6 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<script src='../js/helloWorld.js'></script>
 
 <title>Coming Soon - Start Bootstrap Theme</title>
 
@@ -49,22 +50,26 @@
 						<p class="mb-5">
 							여행을 가고 싶으신가요?<br>그럼 바로 로그인하세요!
 						</p>
-
-						<input type="text" class="form-control" placeholder="Enter id..."
-							aria-label="Enter id..." aria-describedby="submit-button" /><br>
-						<input type="password" class="form-control"
-							placeholder="Enter password..." aria-label="Enter password..."
-							aria-describedby="submit-button" /><br>
-						<button class="btn btn-secondary" type="button" id="submit-button">로그인</button>
-						&nbsp;&nbsp;&nbsp;
-						<button class="btn btn-secondary" type="button" id="signUp-button"
+						<form
+							action="<%=request.getContextPath() %>/firstPage/mainPage.do"
+							method="post">
+							<input id="loginId" name="loginId" type="text"
+								class="form-control" placeholder="Enter id..."
+								aria-label="Enter id..." aria-describedby="submit-button" /><br>
+							<input id="loginPassword" name="loginPassword" type="password"
+								class="form-control" placeholder="Enter password..."
+								aria-label="Enter password..." aria-describedby="submit-button" /><br>
+							<button class="btn btn-secondary" type="submit"
+								id="submit-button">로그인</button>
+							&nbsp;&nbsp;&nbsp;
+							<button class="btn btn-secondary" type="button" id="signUp-button"
 							data-toggle="modal" data-target="#writeModal">회원가입</button>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- Modal -->
 	<div id="writeModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -76,7 +81,7 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="container">
-					
+
 					<form class="form-horizontal" id="ff">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="id">아이디</label>
@@ -93,8 +98,8 @@
 							<label class="control-label col-sm-2" for="name">이름</label>
 							<div class="col-sm-3">
 								<input type="text" class="form-control" id="name"
-									placeholder="Enter name" name="mem_name" value="">
-								<span class="sp"></span>
+									placeholder="Enter name" name="mem_name" value=""> <span
+									class="sp"></span>
 							</div>
 							<div class="msg"></div>
 						</div>
@@ -123,8 +128,8 @@
 							<label class="control-label col-sm-2" for="email">이메일</label>
 							<div class="col-sm-3">
 								<input type="email" class="form-control" id="email"
-									placeholder="abcde@naver.com" name="mem_mail"
-									value=""> <span class="msg"></span>
+									placeholder="abcde@naver.com" name="mem_mail" value="">
+								<span class="msg"></span>
 							</div>
 							<span class="sp"></span>
 						</div>
@@ -178,15 +183,17 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10" style="max-width : 100%!important;  padding-right: 0!important;">
-								<div class="checkbox" style="width : 100%;">
-									<label style="width : 123px;"><input type="checkbox" name="remember">
-										Remember me</label>
-										
-									<button type="submit" class="btn btn-primary btn-lg" style="float:right;margin-top : -16px;">Submit</button>
+							<div class="col-sm-offset-2 col-sm-10"
+								style="max-width: 100% !important; padding-right: 0 !important;">
+								<div class="checkbox" style="width: 100%;">
+									<label style="width: 123px;"><input type="checkbox"
+										name="remember"> Remember me</label>
+
+									<button type="submit" class="btn btn-primary btn-lg"
+										style="float: right; margin-top: -16px;">Submit</button>
 									<span id="subspan"></span>
 								</div>
-								
+
 							</div>
 						</div>
 
@@ -204,7 +211,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="social-icons">
 		<ul class="list-unstyled text-center mb-0">
 			<li class="list-unstyled-item"><a href="#"> <i
@@ -228,8 +234,33 @@
 	<script src="../js/coming-soon.min.js"></script>
 
 	<script type="text/javascript">
+
 	$(function(){
-	
+		$("#loginId").val("");
+		$("#loginPassword").val("");
+		// 회원 가입 버튼 클릭 처리
+// 		$("#signUp-button").on("click", function(){
+<%-- 			location.href = "<%=request.getContextPath()%>/firstPage/member_js.do"; --%>
+// 		})
+		
+		// 버튼을 누를 경우 아이디 비밀번호 입력값 체크 > 
+		// 결과값에 따라 > 셋팅을 해주거나 틀릴경우 alert
+		$('#submit-button').on('click', function(){
+			
+			console.log($("#loginId").val())
+			
+			alert_check = 1;
+			alert_check = <%=request.getAttribute("alert") %>;
+			if(alert_check == 0){
+				alert("아이디 혹은 비밀번호를 잘못 입력하셨습니다.")
+			}
+			
+// 		loginId = $('#loginId').val();
+// 		loginPassword = $('#loginPassword').val();
+		
+// 		loginCheck();  
+
+		}) 
 	})
 </script>
 

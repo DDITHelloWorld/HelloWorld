@@ -51,7 +51,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 order-1 order-lg-2 hero-img">
-					<video src="../mainImages/황리단길.mp4"></video>
+					<img src="../mainImages/hwicon.png">
 				</div>
 			</div>
 		</div>
