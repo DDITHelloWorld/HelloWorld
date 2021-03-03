@@ -31,4 +31,11 @@ PROJECT HELLOWORLD
 - ddit → do로 변경
 - .html → .jsp로 변경
 
+### v1.03 2021_03_03
+ - 상품목록게시판 추가 prod(sumi)
+ - 마이페이지 추가 mypage(kimbo)
+ - 문의게시판 추가 
+ - 
+
+
 ## TEAMMATES
