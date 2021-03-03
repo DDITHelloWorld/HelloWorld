@@ -45,7 +45,8 @@
 	 	 실행할 SQL문은 xml문서로 따로 작성한 후 그 xml문서를 아래와 같이 등록한다.
 	 	 형식 : <sqlMap resource = "경로명/파일명.xml"/>
 	  -->
-	 <sqlMap resource = "kr/or/ddit/mapper/mymember.xml"/>
+<!-- 	 <sqlMap resource = "kr/or/ddit/mapper/mymember.xml"/> -->
 	 <sqlMap resource = "kr/or/ddit/mapper/firstPage.xml"/>
+	 <sqlMap resource = "kr/or/ddit/mapper/myPage.xml"/>
 	
  </sqlMapConfig>
