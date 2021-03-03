@@ -4,7 +4,6 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 	
 <sqlMap namespace="firstPage">
-	<typeAlias alias="memberVo" type="kr.or.ddit.vo.MemberVO"/>
 	
 	<select id="idCheck" parameterClass="memberVo" resultClass="int">
 		select count(*) from member

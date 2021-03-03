@@ -43,6 +43,7 @@ public class mainPageAction implements IAction {
 		System.out.println(loginPassword);
 		System.out.println("if문 직전");
 		
+//		if(!loginId.equals(null)) {
 //		if(!loginId.equals(null) || !(loginId.equals(""))) {
 //			System.out.println("로그인아이디가 널이 아니면");
 //			
