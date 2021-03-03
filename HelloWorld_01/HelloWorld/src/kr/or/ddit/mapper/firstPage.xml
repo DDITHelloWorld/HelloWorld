@@ -10,7 +10,5 @@
 		select count(*) from member
  		 where member_id=#mem_id#
    		   and member_password=#mem_password#
-	
 	</select>
-
 </sqlMap>

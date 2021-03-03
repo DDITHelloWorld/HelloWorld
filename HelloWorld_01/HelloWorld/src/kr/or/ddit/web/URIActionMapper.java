@@ -33,9 +33,7 @@ public class URIActionMapper {
 	// 그 Action객체의 인스턴스를 생성해서 반환하는 메서드
 	public static IAction getAction(String uri) {
 		IAction action = null;
-		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("UROActionMapper에 왜 안들어오냐");
-		System.out.println("--------------------------------------------------------------------------");
+		
 		// 인수값으로 넘어온 uri가 properties파일에 등록된것인지 확ㅇ니
 		if(actionMap.containsKey(uri)) {
 			try {
