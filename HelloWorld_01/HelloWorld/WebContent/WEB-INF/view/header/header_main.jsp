@@ -39,7 +39,7 @@
 		<!-- 두 번째 nav -->
 		<nav class="nav-menu d-none d-lg-block">
 			<ul>
-				<li><a href="../helpBoardPage/index.do">문의 게시판</a></li>
+				<li><a href="../helpBoardPage/main.do">문의 게시판</a></li>
 				<li><a href="#services">홍보 게시판</a></li>
 				<li><a href="#portfolio">이벤트 게시판</a></li>
 				<li><a href="#portfolio">공지사항</a></li>
