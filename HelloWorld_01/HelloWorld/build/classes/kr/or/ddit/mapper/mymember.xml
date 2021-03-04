@@ -5,7 +5,7 @@
 
 <sqlMap namespace = "mymember">
 	
-	<insert id = "insertMember" parameterClass = "memVo">
+	<insert id = "insertMember" parameterClass = "memberVo">
 		insert into mymember(mem_id, mem_name, mem_tel, mem_addr)
 		 values(#mem_id#, #mem_name#, #mem_tel#, #mem_addr#)
 	</insert>
@@ -14,13 +14,13 @@
 		delete from mymember where mem_id = #mem_id#
 	</delete>
 	
-	<update id = "updateMember" parameterClass = "memVo">
+	<update id = "updateMember" parameterClass = "memberVo">
 		update mymember set mem_name = #mem_name#,
 		mem_tel = #mem_tel#, mem_addr = #mem_addr#
 		where mem_id = #mem_id#
 	</update>
 	
-	<select id = "getAllMember" resultClass = "memVo">
+	<select id = "getAllMember" resultClass = "memberVo">
 		select * from mymember
 	</select>
 	
@@ -44,7 +44,7 @@
 		where mem_id = #memid#
 	</update>
 	
-	<select id="getMember" parameterClass="string" resultClass="memVo">
+	<select id="getMember" parameterClass="string" resultClass="memberVo">
 		select * from mymember where mem_id = #mem_id#
 	</select>
 	
