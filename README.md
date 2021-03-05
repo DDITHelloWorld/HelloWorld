@@ -1,4 +1,4 @@
-# [readMe]
+# README
 
 # HELLOWORLD
 
@@ -29,7 +29,8 @@ PROJECT HELLOWORLD
 - header_main, header_prod 생성
 
 - ddit → do로 변경
-- .html → .jsp로 변경
+- html → do로 변경
+
 
 ### v1.03 2021_03_03
  - 상품목록게시판 추가 prod(sumi)
@@ -37,5 +38,11 @@ PROJECT HELLOWORLD
  - 문의게시판 추가 
  - 
 
+### v1.03 2021_03_05
+
+### firstPage
+
+- 회원가입 daum API 연동
+- 회원가입 db 연동
 
 ## TEAMMATES

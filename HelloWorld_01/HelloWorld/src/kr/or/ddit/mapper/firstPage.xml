@@ -6,8 +6,28 @@
 <sqlMap namespace="firstPage">
 	
 	<select id="idCheck" parameterClass="memVo" resultClass="int">
-		select count(*) from member
- 		 where member_id=#member_id#
-   		   and member_password=#member_password#
+		SELECT count(*) FROM member
+ 		 WHERE member_id=#member_id#
+   		   AND member_password=#member_password#
 	</select>
+	
+	<select id="idCheck_signUp" parameterClass="String" resultClass="int">
+		SELECT * from id_info WHERE id = #id#
+	</select>
+	<insert id="insertId_info" parameterClass="id_infoVo">
+		INSERT INTO id_info VALUES (#id#, #authority#)
+		<selectKey keyProperty="authority" resultClass="int">
+			SELECT authority FROM id_info WHERE id = #id#
+		</selectKey>
+	</insert>
+	<insert id="insertMember" parameterClass="memVo">
+		INSERT INTO member(member_no, member_id, member_password, member_name,member_milleage, member_point,
+									member_address, member_birthday, member_state, member_phone, member_email)
+    			VALUES(MEMBER_NUM_SEQ.NEXTVAL,'gil01', '1234', 'gil', 0, 0, '대전', sysdate, 0, '123-1234-1234', 'aaa@aaa.com');
+		<selectKey keyProperty="member_no" resultClass="int">
+			SELECT MEMBER_NUM_SEQ.CURRVAL FROM dual
+		</selectKey>
+	</insert>
+	
+	
 </sqlMap>
