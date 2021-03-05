@@ -9,6 +9,7 @@ package kr.or.ddit.vo;
  * 
  */
 public class MemberVO {
+	private int member_no;
 	private String member_id;
 	private String member_password;
 	private String member_name;
@@ -20,8 +21,23 @@ public class MemberVO {
 	private String member_phone;
 	private String member_email;
 	private String member_birthday;
+	private String member_address2;
 	
-	
+	public int getMember_no() {
+		return member_no;
+	}
+	public void setMember_no(int member_no) {
+		this.member_no = member_no;
+	}
+	public String getMember_address2() {
+		return member_address2;
+	}
+	public void setMember_address2(String member_address2) {
+		this.member_address2 = member_address2;
+	}
+	public static String getKey() {
+		return KEY;
+	}
 	public String getMember_birthday() {
 		return member_birthday;
 	}

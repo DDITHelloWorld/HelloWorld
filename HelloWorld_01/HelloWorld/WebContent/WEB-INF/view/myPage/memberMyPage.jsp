@@ -1,11 +1,26 @@
 <!DOCTYPE html>
+<%@page import="kr.or.ddit.vo.MemberVO"%>
+<%@page import="kr.or.ddit.vo.OrderVO"%>
+<%@page import="kr.or.ddit.vo.WishListVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	MemberVO vo = (MemberVO) request.getAttribute("memberInfo");
+
+	List<WishListVO> wishList = (List<WishListVO>) request.getAttribute("wishVo");
+
+	List<OrderVO> orderList = (List<OrderVO>) request.getAttribute("orderVo");
+%>    
+    
+    
+<%-- <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> --%>
 <html lang="kr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Hello World !</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,6 +50,10 @@
 #outPutMainView{
 	padding: 30px;
 }
+#myPageHomeButton{
+	background-color: transparent;
+    border: none;
+}
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
@@ -48,7 +67,9 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../myPage/myPageMain.do" class="nav-link">Home</a>
+      	<form id="myPageHome" action="<%=request.getContextPath()%>/myPage/myPageMain.do">
+        	<input type="submit" id="myPageHomeButton" class="nav-link" value="Home"/>
+      	</form>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -170,62 +191,9 @@
                   <p>비밀번호 변경</p>
                 </a>
               </li>
- 
-<!--               <li class="nav-item">
-                <a href="../pages/UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li> -->
-            </ul>
+           </ul>
           </li>
-<!--           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../pages/forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -236,25 +204,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../pages/tables/simple.html" class="nav-link">
+                <a href="../pages/tables/simple.html" id="orderRecode" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>주문 내역</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/tables/data.html" class="nav-link">
+                <a href="../pages/tables/data.html" id="wishList" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>찜목록</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/tables/jsgrid.html" class="nav-link">
+                <a href="../pages/tables/jsgrid.html" id="myReview" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>내 리뷰</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/tables/jsgrid.html" class="nav-link">
+                <a href="../pages/tables/jsgrid.html" id="myHelpBoardList" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>문의 내역</p>
                 </a>
@@ -262,16 +230,9 @@
               
             </ul>
           </li>
+          
           <li class="nav-header">EXAMPLES</li>
-<!--           <li class="nav-item">
-            <a href="../pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                일정표
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li> -->
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -401,16 +362,20 @@
 							<tr>
 								<th>이름</th>
 								<th>아이디</th>
+								<th>보유포인트</th>
+								<th>보유마일리지</th>
 								<th>Email</th>
 								<th>휴대전화</th>
 								</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>홍길동</td>
-								<td>bhqhgus2</td>
-								<td>john@example.com</td>
-								<td>010-1111-1111</td>
+								<td><%=vo.getMember_name() %></td>
+								<td><%=request.getSession().getAttribute("loginId")%></td>
+								<td><%=vo.getMember_point() %></td>
+								<td><%=vo.getMember_milleage() %></td>
+								<td><%=vo.getMember_email() %></td>
+								<td><%=vo.getMember_phone() %></td>
 							</tr>
 
 						</tbody>
@@ -425,46 +390,87 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>이름</th>
-								<th>아이디</th>
-								<th>Email</th>
-								<th>휴대전화</th>
-								</tr>
+								<th>주문번호</th>
+								<th>상품번호</th>
+								<th>회원번호</th>
+								<th>주문날짜</th>
+								<th>주문상태</th>
+							</tr>
 						</thead>
 						<tbody>
+						
+							<%
+								if (orderList == null || orderList.size() == 0) {
+							%>
+
 							<tr>
-								<td>홍길동</td>
-								<td>bhqhgus2</td>
-								<td>john@example.com</td>
-								<td>010-1111-1111</td>
+								<td colspan="4">주문내역이 없습니다.
 							</tr>
+			
+							<%
+								} else {
+									for (OrderVO orderVo : orderList) {
+							%>				
+													
+							<tr>
+								<td><%=orderVo.getOrder_no()%></td>
+								<td><%=orderVo.getProd_no()%></td>
+								<td><%=orderVo.getMember_no()%></td>
+								<td><%=orderVo.getOrder_date()%></td>
+								<td><%=orderVo.getOrder_state()%></td>
+							</tr>
+							
+							<%
+									}
+								}
+							%>							
+							
 
 						</tbody>
 					</table>
 				</div>
 				<br>
 				
-				<!-- 방문한 여행지 -->
+				<!-- 찜목록 -->
 				<div class="container">
-					<h2><br> </h2>
-					<p>기본 회원정보</p>
+					<h2>찜목록</h2>
+					<p>Wish List</p>
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>이름</th>
-								<th>아이디</th>
-								<th>Email</th>
-								<th>휴대전화</th>
-								</tr>
+								<th>찜목록 번호</th>
+								<th>주문 상태</th>
+								<th>상품번호</th>
+								<th>회원번호</th>
+							</tr>
 						</thead>
 						<tbody>
+						
+							<%
+								if (wishList == null || wishList.size() == 0) {
+							%>
+						
 							<tr>
-								<td>홍길동</td>
-								<td>bhqhgus2</td>
-								<td>john@example.com</td>
-								<td>010-1111-1111</td>
+								<td colspan="4">목록이 없습니다.
+							</tr>
+			
+							<%
+								} else {
+									for (WishListVO wishVo : wishList) {
+							%>
+										
+							<tr>
+								<td><%=wishVo.getWishlist_no() %></td>
+								<td><%=wishVo.getWishlist_state() %></td>
+								<td><%=wishVo.getProd_no() %></td>
+								<td><%=wishVo.getMember_no() %></td>
 							</tr>
 
+							<%
+									}
+								}
+							%>
+				
 						</tbody>
 					</table>
 				</div>
@@ -473,7 +479,7 @@
 			</div>
 			<div class="tab-loading">
         <div>
-          <h2 class="display-4">Tab is loading <i class="fa fa-sync fa-spin"></i></h2>
+          <h2 class="display-4">로딩중입니다 ㅎㅎ<i class="fa fa-sync fa-spin"></i></h2>
         </div>
       </div>
     </div>
@@ -529,10 +535,39 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard.js"></script>
+<!-- <script src="../dist/js/pages/dashboard.js"></script>
+ -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../plugins/jszip/jszip.min.js"></script>
+<script src="../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Page specific script -->
+
+<!-- 스크립트 -->
+<script src = '../js/jquery.serializejson.min.js'></script>
 <script src="../js/helloWorld.js"></script>
 
-<script type="text/javascript">
+
+
+
+<script>
+
 $(function(){
 	$('#myInfomationHome').on('click', function(){
 		openMyInfomationHome();
@@ -546,9 +581,27 @@ $(function(){
 		passwordUpdate();
 	})
 	
+	$('#orderRecode').on('click', function(){
+		openOrderRecode();
+	})
+	
+	$('#wishList').on('click', function(){
+		openWishList();
+	})
+	
+	$('#myReview').on('click', function(){
+		openMyReview();
+	})
+	
+	$('#myHelpBoardList').on('click', function(){
+		openMyHelpBoardList();
+	})
+
 })
 
 </script>
+
+ 
 
 
 </body>

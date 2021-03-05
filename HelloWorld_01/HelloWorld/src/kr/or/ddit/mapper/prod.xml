@@ -40,5 +40,50 @@
 		  and a.attraction_no = c.attraction_no
 		order by prod_no
 	</select>
+	
+	<select id="selectAttraction" resultClass="attractionVo" parameterClass="String">
+	  select * from attraction where attraction_region like '%'||#region#||'%' order by attraction_no
+	</select>
+	
+	<insert id="insertProd" parameterClass ="prod_insertVo">	
+		<selectKey keyProperty="prod_no" resultClass="int" type="pre">
+	    	select prod_num_seq.nextval from dual
+		</selectKey> 
+		INSERT INTO prod(prod_no, prod_name, guide_no, prod_price, prod_sale, prod_state, prod_date, month_destination, prod_views)
+				VALUES(#prod_no#, #prod_name#, #guide_no#, #prod_price#, #prod_price#, 0, SYSDATE, 0, 0)
+	</insert>
+	
+	<insert id="insertProdDetail" parameterClass ="prod_insertVo">
+		INSERT INTO prod_detail(prod_no, prod_outline, prod_details, prod_travel_date, prod_travel_max)
+				VALUES(#prod_no#, #prod_outline#, #prod_details#, #prod_travel_date#, #prod_travel_max#)
+		<selectKey keyProperty="prod_no" resultClass="int" type="post">
+	    	select #prod_no# from dual
+		</selectKey>
+	</insert>
+	
+	<insert id="insertRelationship" parameterClass="prod_insertVo">
+		<selectKey keyProperty="re_no" resultClass="int" type="pre">
+			select relationship_num_seq.nextval from dual
+		</selectKey>
+		INSERT INTO RELATIONSHIP (re_no, prod_no, attraction_no) VALUES (#re_no#, #prod_no#, #attraction_no#)
+	</insert>
+	
+	<select id="selectOne" parameterClass="int" resultClass="prod_insertVo">
+		select a.prod_no, a.prod_name, a.guide_no, a.prod_price, a.prod_sale, a.prod_state, a.prod_date, a.month_destination,
+		       a.prod_views, a.promotion_no, b.prod_outline, b.prod_details, b.prod_travel_date, b.prod_travel_max,
+		       d.attraction_no, d.attraction_region, d.attraction_name, d.attraction_video, d.attraction_photo
+		  from prod a, prod_detail b, relationship c, attraction d
+		 where a.prod_no = b.prod_no
+		   and a.prod_no = c.prod_no
+		   and a.prod_no = #prod_no#
+		   and c.attraction_no = d.attraction_no
+	</select>
+	
+	<select id="selectGuide" parameterClass="int" resultClass="guideVo">
+ 		select a.* 
+		  from guide a, prod b
+		 where a.guide_no = b.guide_no
+		   and b.prod_no = #prod_no#
+	</select>
 </sqlMap>
 

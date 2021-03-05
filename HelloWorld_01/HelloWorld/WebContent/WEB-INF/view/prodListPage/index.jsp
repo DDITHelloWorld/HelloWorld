@@ -49,7 +49,7 @@
 }
 #region-list{
 	width: 100%;
-	height: 100vh;
+	height: 180vh;
 	
 }
 .prod-img{
@@ -61,6 +61,7 @@
 }
 .prod-img img{
   width : 100%;
+  height : 260px;
 }
 .single-prod a{
   display : inline-block;
@@ -86,6 +87,21 @@
   width : 113px;
   height : 42px;
 }
+.single-prod a{
+  font-size: 20px;
+  font-weight: bold;
+}
+.prodListResult .col-md-4{
+	margin-bottom: 17px;
+}
+section{
+	height: 180vh;
+}
+section::after {
+  content: ""!important;
+  display: block!important;
+  clear: both!important;
+}
 </style>
 <script type="text/javascript">
 $(function(){
@@ -98,10 +114,19 @@ $(function(){
 		if(vtext != '특별시 및 광역시' && vtext != '전체 지역'){
 			readProdList(vtext);
 		}else if(vtext == '전체 지역'){
+			
 			readProdAll();
 		}else{
 			readProdList2();
 		}
+	});
+	
+	$(document).on('click', '.prodMove', function(){
+		vpNum = $(this).attr('id').trim();
+// 		console.log(vpNum);
+		vpNum = vpNum.substring(7, vpNum.length);
+// 		console.log(vpNum);
+		
 	});
 		
 })

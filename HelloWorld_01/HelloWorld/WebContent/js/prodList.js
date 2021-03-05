@@ -16,11 +16,11 @@ readProdAll = function(){
 				  code += '  <div class="col-md-4 col-sm-4">';
 				  code += '    <div class="single-prod">';
 				  code += '      <div class="prod-img">';
-				  code += '        <a href="#"> <img src="../images/'+ v.ATTRACTION_PHOTO + '" alt="attraction_photo">';
+				  code += '        <a href="../prod/SelectProd.do?prod_no=' + v.PROD_NO + '" class="prodMove" id="prod_no' + v.PROD_NO + '"> <img src="../images/attraction/'+ v.ATTRACTION_PHOTO + '" alt="attraction_photo">';
 				  code += '        </a>';
 				  code += '      </div>';
 				  code += '      <div class="prod-name text-center">';
-				  code += '        <a href="#">' + v.PROD_NAME + '</a>';
+				  code += '        <a href="../prod/SelectProd.do?prod_no=' + v.PROD_NO + '">' + v.PROD_NAME + '</a>';
 				  code += '      </div>';
 				  code += '    </div>';
 				  code += '  </div>';
@@ -55,11 +55,11 @@ readProdList = function(region){
 				  code += '  <div class="col-md-4 col-sm-4">';
 				  code += '    <div class="single-prod">';
 				  code += '      <div class="prod-img">';
-				  code += '        <a href="#"> <img src="../images/'+ v.ATTRACTION_PHOTO + '" alt="attraction_photo">';
+				  code += '        <a href="../prod/SelectProd.do?prod_no=' + v.PROD_NO + '" class="prodMove" id="prod_no' + v.PROD_NO + '"> <img src="../images/attraction/'+ v.ATTRACTION_PHOTO + '" alt="attraction_photo">';
 				  code += '        </a>';
 				  code += '      </div>';
 				  code += '      <div class="prod-name text-center">';
-				  code += '        <a href="#">' + v.PROD_NAME + '</a>';
+				  code += '        <a href="../prod/SelectProd.do?prod_no=' + v.PROD_NO + '">' + v.PROD_NAME + '</a>';
 				  code += '      </div>';
 				  code += '    </div>';
 				  code += '  </div>';
@@ -92,11 +92,11 @@ readProdList2 = function(){
 					code += '  <div class="col-md-4 col-sm-4">';
 					code += '    <div class="single-prod">';
 					code += '      <div class="prod-img">';
-					code += '        <a href="#"> <img src="../images/'+ v.ATTRACTION_PHOTO + '" alt="attraction_photo">';
+					  code += '        <a href="../prod/SelectProd.do?prod_no=' + v.PROD_NO + '" class="prodMove" id="prod_no' + v.PROD_NO + '"> <img src="../images/attraction/'+ v.ATTRACTION_PHOTO + '" alt="attraction_photo">';
 					code += '        </a>';
 					code += '      </div>';
 					code += '      <div class="prod-name text-center">';
-					code += '        <a href="#">' + v.PROD_NAME + '</a>';
+					code += '        <a href="../prod/SelectProd.do?prod_no=' + v.PROD_NO + '">' + v.PROD_NAME + '</a>';
 					code += '      </div>';
 					code += '    </div>';
 					code += '  </div>';
@@ -114,3 +114,18 @@ readProdList2 = function(){
 		dataType : 'json'
 	});
 };
+
+readProdDetail = function(){
+	$.ajax({
+		url : '/HelloWorld/prod/SelectProd.do',
+		type : 'get',
+		data : {'prod_no' : vpNum},
+		success : function(res){
+			
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status)
+		}
+	});
+};
+

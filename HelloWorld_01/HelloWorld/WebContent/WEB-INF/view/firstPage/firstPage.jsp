@@ -63,12 +63,12 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="container">
-
+					<!-- Form -->
                     <form class="form-horizontal" id="signUp_form">
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="id">아이디</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="id" placeholder="Enter id" name="mem_id" value="">
+                                <input type="text" class="form-control" id="id" placeholder="Enter id" name="member_id" value="">
                             </div>
                             <button class="btn btn-success btn-sm" id="idbtn" type="button">아이디중복검사</button>
                             <div class="msg"></div>
@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="pwd">비밀번호</label>
                             <div class="col-sm-3">
-                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="mem_pass" value="">
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="member_password" value="">
                             </div>
                             <div class="msg"></div>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="name">이름</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" placeholder="Enter name" name="mem_name" value="">
+                                <input type="text" class="form-control" id="name" placeholder="Enter name" name="member_name" value="">
                             </div>
                             <div class="msg"></div>
                         </div>
@@ -101,7 +101,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="hp">전화번호</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="hp" placeholder="123-1234-1234" name="mem_hp" value="">
+                                <input type="text" class="form-control" id="hp" placeholder="123-1234-1234" name="member_phone" value="">
                             </div>
                             <div class="msg"></div>	
                         </div>
@@ -109,7 +109,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="bir">생년월일</label>
                             <div class="col-sm-3">
-                                <input type="date" class="form-control" id="bir" placeholder="Enter bir" name="mem_bir">
+                                <input type="date" class="form-control" id="bir" placeholder="Enter bir" name="member_birthday">
                             </div>
                             <div class="msg"></div>
                         </div>
@@ -117,7 +117,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="email">이메일</label>
                             <div class="col-sm-3">
-                                <input type="email" class="form-control" id="email" placeholder="abcde@naver.com" name="mem_mail" value="">
+                                <input type="email" class="form-control" id="email" placeholder="abcde@naver.com" name="member_email" value="">
                             </div>
                             <div class="msp"></div>
                         </div>
@@ -125,7 +125,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="zip">우편번호</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="zip" placeholder="Enter zip" name="mem_zip" value="">
+                                <input type="text" class="form-control" id="zip" placeholder="Enter zip" name="member_zip" value="">
                             </div>
                             <button class="btn btn-success btn-sm" id="mzipbtn" type="button">우편번호 찾기</button>
                         </div>
@@ -134,7 +134,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="add1">주소</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="add1" placeholder="Enter add1" name="mem_add1" value="">
+                                <input type="text" class="form-control" id="add1" placeholder="Enter add1" name="member_address" value="">
                             </div>
 
                         </div>
@@ -142,7 +142,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="add2">상세주소</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="add2" placeholder="Enter add2" name="mem_add2" value="">
+                                <input type="text" class="form-control" id="add2" placeholder="Enter add2" name="member_address2" value="">
                             </div>
                         </div>
 
@@ -150,7 +150,7 @@
                             <div class="col-sm-offset-2 col-sm-10" style="max-width: 100% !important; padding-right: 0 !important;">
                                 <div class="checkbox" style="width: 100%;">
                                     <label style="width: 123px;"><input type="checkbox" name="remember"> Remember me</label>
-                                    <button type="submit" class="btn btn-primary btn-lg" style="float: right; margin-top: -16px;" id="sign_up_cpl">Submit</button>
+                                    <button type="submit" class="btn btn-primary btn-lg" style="float: right; margin-top: -16px;" id="signUp_submit">Submit</button>
                                     
                                 </div>
                             </div>
@@ -225,11 +225,11 @@ $(function() {
     // 이름
     $('#name').on('keyup', function() {
         nameValue = $('#name').val().trim();
-        if (nameValue.length < 2 || nameValue.length > 10) {
+        if (nameValue.length < 2 || nameValue.length > 12) {
             nopro(this, "이름은 2글자 이상 적어야 합니다.");
             return;
         }
-        regname = /^[가-힣a-zA-Z]{2,5}$/;
+        regname = /^[가-힣a-zA-Z]{2,12}$/;
         if (regname.test(nameValue)) {
             okpro(this);
         } else {
@@ -307,7 +307,9 @@ $(function() {
     	sample4_execDaumPostcode();
     })
     // 회원가입 완료 버튼 클릭 시
-    $("#sign_up_cpl").on('click', function(){
+    $("#signUp_submit").on('click', function(){
+    	event.preventDefault();
+    	console.log("signUp_submit 클릭")
     	signUp_submit();
     })
 })

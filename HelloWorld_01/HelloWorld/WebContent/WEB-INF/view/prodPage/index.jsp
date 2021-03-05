@@ -1,3 +1,6 @@
+<%@page import="kr.or.ddit.vo.GuideVO"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.or.ddit.vo.Prod_insertVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,13 +42,34 @@
 <link href="../css/mainStyle.css" rel="stylesheet">
 <link href="../css/headerFooterStyle.css" rel="stylesheet">
 <link href="../css/prodStyle.css" rel="stylesheet">
-
+<style type="text/css">
+#ensign-nivoslider {
+	height :750px;
+	
+}
+.contact-inner .col-md-6{
+	text-align: right;
+}
+.contact-inner .col-md-6 img{
+	margin-right: 35px;
+	border-radius : 25px;
+	border: 1px solid lightgray;
+}
+.guideForm{
+	text-align: left;
+}
+</style>
 <!-- =======================================================
   * Template Name: eBusiness - v2.2.1
   * Template URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<%
+	List<Prod_insertVO> list = (List<Prod_insertVO>)request.getAttribute("Prod_insertVo");
+	String detail = list.get(0).getProd_details().replaceAll("\r", "").replaceAll("\n", "<br>");
+	GuideVO guideVo = (GuideVO)request.getAttribute("GuideVo");
+%>
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
@@ -56,12 +80,13 @@
 	<div id="home" class="slider-area">
 		<div class="bend niceties preview-2">
 			<div id="ensign-nivoslider" class="slides">
-				<img src="../prodImages/slider/slider1.jpg" alt=""
-					title="#slider-direction-1" /> <img
-					src="../prodImages/slider/slider2.jpg" alt=""
-					title="#slider-direction-2" /> <img
-					src="../prodImages/slider/slider3.jpg" alt=""
-					title="#slider-direction-3" />
+<%
+	for(Prod_insertVO vo : list){
+%>
+				<img src="../images/attraction/<%=vo.getAttraction_photo() %>" alt="사진" title="#slider-direction-1" />
+<%
+	}
+%>
 			</div>
 		</div>
 	</div>
@@ -74,7 +99,7 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="section-headline text-center">
-						<h2>About eBusiness</h2>
+						<h2><%= list.get(0).getProd_name() %></h2>
 					</div>
 				</div>
 			</div>
@@ -83,7 +108,7 @@
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="well-left">
 						<div class="single-well">
-							<a href="#"> <img src="../prodImages/about/1.jpg" alt="">
+							<a href="#"> <img src="../images/attraction/<%=list.get(0).getAttraction_photo() %>" alt="사진">
 							</a>
 						</div>
 					</div>
@@ -93,20 +118,22 @@
 					<div class="well-middle">
 						<div class="single-well">
 							<a href="#">
-								<h4 class="sec-head">project Maintenance</h4>
+								<h4 class="sec-head"><%= list.get(0).getProd_outline() %></h4>
 							</a>
-							<p>Redug Lagre dolor sit amet, consectetur adipisicing elit.
-								Itaque quas officiis iure aspernatur sit adipisci quaerat unde
-								at nequeRedug Lagre dolor sit amet, consectetur adipisicing
-								elit. Itaque quas officiis iure</p>
+							<p><%= detail %></p>
 							<ul>
-								<li><i class="fa fa-check"></i> Interior design Package</li>
-								<li><i class="fa fa-check"></i> Building House</li>
-								<li><i class="fa fa-check"></i> Reparing of Residentail
-									Roof</li>
-								<li><i class="fa fa-check"></i> Renovaion of Commercial
-									Office</li>
-								<li><i class="fa fa-check"></i> Make Quality Products</li>
+								<li><i class="fa fa-check"></i> 가격 : <%=list.get(0).getProd_price() %></li>
+								<li><i class="fa fa-check"></i> 여행 날짜 : <%=list.get(0).getProd_travel_date() %></li>
+								<li><i class="fa fa-check"></i> 최대 인원 : <%=list.get(0).getProd_travel_max()%> </li>
+								<hr>
+								<h6>여행지</h6>
+<%
+		for(Prod_insertVO vo : list){
+%>
+								<li><i class="fa fa-check"></i> <%= vo.getAttraction_name() %></li>
+<%
+		}
+%>
 							</ul>
 						</div>
 					</div>
@@ -121,7 +148,8 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="section-headline services-head text-center">
-						<h2>Our Services</h2>
+						<h2>Review</h2><br>
+						<h2>리뷰 게시판 와야함</h2>
 					</div>
 				</div>
 			</div>
@@ -230,13 +258,16 @@
 			</div>
 		</div>
 	</div>
-	<!-- End Services Section --> <!-- ======= Team Section ======= -->
+	<!-- End Services Section --> 
+	
+	<!-- ======= Team Section ======= -->
 	<div id="team" class="our-team-area area-padding">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="section-headline text-center">
-						<h2>Our special Team</h2>
+						<h2>Q & A</h2><br>
+						<h2>Q & A 게시판 와야 함</h2>
 					</div>
 				</div>
 			</div>
@@ -336,7 +367,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- End Team Section --> <!-- ======= Contact Section ======= -->
+	<!-- End Team Section -->
+	
+	<!-- ======= Contact Section ======= -->
 	<div id="contact" class="contact-area">
 		<div class="contact-inner area-padding">
 			<div class="contact-overly"></div>
@@ -344,99 +377,46 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="section-headline text-center">
-							<h2>Contact us</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<!-- Start contact icon column -->
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<div class="contact-icon text-center">
-							<div class="single-icon">
-								<i class="fa fa-mobile"></i>
-								<p>
-									Call: +1 5589 55488 55<br> <span>Monday-Friday
-										(9am-5pm)</span>
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- Start contact icon column -->
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<div class="contact-icon text-center">
-							<div class="single-icon">
-								<i class="fa fa-envelope-o"></i>
-								<p>
-									Email: info@example.com<br> <span>Web:
-										www.example.com</span>
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- Start contact icon column -->
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<div class="contact-icon text-center">
-							<div class="single-icon">
-								<i class="fa fa-map-marker"></i>
-								<p>
-									Location: A108 Adam Street<br> <span>NY 535022, USA</span>
-								</p>
-							</div>
+							<h2>Guide</h2>
 						</div>
 					</div>
 				</div>
 
 				<div class="row">
-					<!-- Start Google Map -->
 					<div class="col-md-6 col-sm-6 col-xs-12">
-						<!-- Start Map -->
-						<iframe
-							src="https://maps.google.com/maps?q=%EB%8C%80%EC%A0%84%20%EB%8C%80%EB%8D%95%EC%9D%B8%EC%9E%AC%EA%B0%9C%EB%B0%9C%EC%9B%90&t=&z=13&ie=UTF8&iwloc=&output=embed"
-							width="100%" height="380" frameborder="0" style="border: 0"
-							allowfullscreen></iframe>
-						<!-- End Map -->
+						<!-- guide img -->
+						<img src="../images/guide/<%= guideVo.getGuide_photo() %>"	width="60%" height="380"></img>
+						<!-- guide img -->
 					</div>
-					<!-- End Google Map -->
 
 					<!-- Start  contact -->
 					<div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="form contact-form">
-							<form action="forms/contact.php" method="post" role="form"
-								class="php-email-form">
-								<div class="form-group">
-									<input type="text" name="name" class="form-control" id="name"
-										placeholder="Your Name" data-rule="minlen:4"
-										data-msg="Please enter at least 4 chars" />
-									<div class="validate"></div>
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control" name="email"
-										id="email" placeholder="Your Email" data-rule="email"
-										data-msg="Please enter a valid email" />
-									<div class="validate"></div>
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" name="subject"
-										id="subject" placeholder="Subject" data-rule="minlen:4"
-										data-msg="Please enter at least 8 chars of subject" />
-									<div class="validate"></div>
-								</div>
-								<div class="form-group">
-									<textarea class="form-control" name="message" rows="5"
-										data-rule="required" data-msg="Please write something for us"
-										placeholder="Message"></textarea>
-									<div class="validate"></div>
-								</div>
-								<div class="mb-3">
-									<div class="loading">Loading</div>
-									<div class="error-message"></div>
-									<div class="sent-message">Your message has been sent.
-										Thank you!</div>
-								</div>
-								<div class="text-center">
-									<button type="submit">Send Message</button>
-								</div>
-							</form>
+						<div class="form contact-form guideForm">
+						  <h4>Guide Name</h4>
+						  <hr>
+						  <h5><%= guideVo.getGuide_name() %></h5>
+						  <br><hr>
+						  <h4>Guide ID</h4><hr>
+						  <h5><%= guideVo.getGuide_id() %></h5>
+						  <br><hr>
+						  <h4>Guide StarRating</h4><hr>
+						  <p id="star_grade">
+<%	for(int i = 0; i <= guideVo.getGuide_rating() - 1; i++){
+%>
+					        <a href="#">★</a>
+<%	
+}
+	for(int i = 0; i <= 5 - guideVo.getGuide_rating() - 1; i++){
+%>
+					        <a href="#">☆</a>
+<%				    
+	}
+%>
+<!-- 					        <a href="#">★</a> -->
+<!-- 					        <a href="#">★</a> -->
+<!-- 					        <a href="#">★</a> -->
+<!-- 					        <a href="#">★</a> -->
+						  </p>
 						</div>
 					</div>
 					<!-- End Left contact -->
