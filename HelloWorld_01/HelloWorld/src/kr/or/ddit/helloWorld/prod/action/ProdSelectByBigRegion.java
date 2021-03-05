@@ -13,9 +13,8 @@ import com.google.gson.Gson;
 import kr.or.ddit.helloWorld.prod.service.IProdService;
 import kr.or.ddit.helloWorld.prod.service.ProdServiceImpl;
 import kr.or.ddit.web.IAction;
-import oracle.net.aso.a;
 
-public class ProdSelectAll implements IAction {
+public class ProdSelectByBigRegion implements IAction {
 
 	@Override
 	public boolean isRedirect() {
@@ -31,7 +30,7 @@ public class ProdSelectAll implements IAction {
 		
 		IProdService service = ProdServiceImpl.getService();
 		
-		List<Map<String, String>> list = service.selectAll();
+		List<Map<String, String>> list = service.selectByBigRegion();
 		
 		Gson gson = new Gson();
 		String result = gson.toJson(list);

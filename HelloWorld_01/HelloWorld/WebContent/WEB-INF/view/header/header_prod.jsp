@@ -6,8 +6,7 @@
 
 		<div class="logo mr-auto">
 			<h1 class="text-light">
-				<a href="../mainPage/mainPage.do"> <img id="homeicon" alt="icon"
-					src="../mainImages/hwicon.png"> <span>Hello, World!</span>
+				<a href="../header/mainPage.do"> <img id="homeicon" alt="icon" src="../mainImages/hwicon.png"> <span>Hello, World!</span>
 				</a>
 			</h1>
 			<!-- Uncomment below if you prefer to use an image logo -->
@@ -15,14 +14,13 @@
 		</div>
 
 		<!-- 첫 번째 nav -->
-		<nav class="nav-menu d-none d-lg-block">
+		<nav class="hfirst-nav nav-menu d-none d-lg-block">
 			<ul>
 				<!--           <li class="active"><a href="index.html">Home</a></li> -->
-				<li><a href="#about">돋보기</a></li>
-				<li><a href="#services">하트</a></li>
-				<li><a href="#portfolio">사람</a></li>
-
-				<li class="get-started"><a href="#about">여행시작</a></li>
+				<li><a href="#about"><img alt="돋보기" src="../images/search.png" width="25"></a></li>
+				<li><a href="#services"><img alt="찜목록" src="../images/heart.png" width="30"></a></li>
+				<li style="margin-top : -7px;"><a href="../myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
+				<li class="get-started"><a href="../prodListPage/prodListPage.do">여행 시작</a></li>
 			</ul>
 		</nav>
 		<!-- .nav-menu -->
@@ -35,10 +33,9 @@
 		<!-- 두 번째 nav -->
 		<nav class="nav-menu d-none d-lg-block">
 			<ul>
-				<li><a href="#home">Home</a></li>
 				<li><a href="#about">About</a></li>
-				<li><a href="#services">Service</a></li>
-				<li><a href="#team">Team</a></li>
+				<li><a href="#services">Review</a></li>
+				<li><a href="#team">Q & A</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</nav>

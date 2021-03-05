@@ -11,22 +11,26 @@
    		   AND member_password=#member_password#
 	</select>
 	
+	
 	<select id="idCheck_signUp" parameterClass="String" resultClass="int">
-		SELECT * from id_info WHERE id = #id#
+		SELECT count(*) from id_info WHERE id = #id#
 	</select>
+	
 	<insert id="insertId_info" parameterClass="id_infoVo">
 		INSERT INTO id_info VALUES (#id#, #authority#)
 		<selectKey keyProperty="authority" resultClass="int">
 			SELECT authority FROM id_info WHERE id = #id#
 		</selectKey>
 	</insert>
+	
 	<insert id="insertMember" parameterClass="memVo">
+		<selectKey keyProperty="member_no" resultClass="int" type="pre">
+			SELECT member_num_seq.nextval FROM dual
+		</selectKey>
 		INSERT INTO member(member_no, member_id, member_password, member_name,member_milleage, member_point,
 									member_address, member_birthday, member_state, member_phone, member_email)
-    			VALUES(MEMBER_NUM_SEQ.NEXTVAL,'gil01', '1234', 'gil', 0, 0, '대전', sysdate, 0, '123-1234-1234', 'aaa@aaa.com');
-		<selectKey keyProperty="member_no" resultClass="int">
-			SELECT MEMBER_NUM_SEQ.CURRVAL FROM dual
-		</selectKey>
+    			VALUES(#member_no#, #member_id#, #member_password#, #member_name#, 0, 0, 
+    								#member_address#, #member_birthday#, 0, #member_phone#, #member_email#)
 	</insert>
 	
 	
