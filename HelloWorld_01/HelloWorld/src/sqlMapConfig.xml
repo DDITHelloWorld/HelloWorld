@@ -27,12 +27,11 @@
 	 	  형식 : <typeAlias alias = "alias명" type = "클래스의 전체이름"/>
 	  --> 
 	  
-	  <typeAlias alias = "prodVo" type = "kr.or.ddit.vo.ProdVO"></typeAlias>
-	  <typeAlias alias = "attractionVo" type = "kr.or.ddit.vo.AttractionVO"></typeAlias>
-	 <!--  <typeAlias alias = "LprodVo" type = "kr.or.ddit.basic.LprodVO"></typeAlias> -->
-	 
-	 <typeAlias alias="memVo" type="kr.or.ddit.vo.MemberVO"/>
-	 
+	 <typeAlias alias = "prodVo" type = "kr.or.ddit.vo.ProdVO"></typeAlias>
+	 <typeAlias alias = "attractionVo" type = "kr.or.ddit.vo.AttractionVO"></typeAlias>
+	 <typeAlias alias = "memVo" type = "kr.or.ddit.vo.MemberVO"></typeAlias>
+	 <typeAlias alias = "id_infoVo" type = "kr.or.ddit.vo.Id_infoVO"></typeAlias>
+
 	 <!-- DB와의 연결을 처리하는 부분 -->
 	 <transactionManager type="JDBC">
 	 	<dataSource type="SIMPLE">

@@ -25,8 +25,8 @@
 				<!--           <li class="active"><a href="index.html">Home</a></li> -->
 				<li><a href="#about"><img alt="돋보기" src="../images/search.png" width="25"></a></li>
 				<li><a href="#services"><img alt="찜목록" src="../images/heart.png" width="30"></a></li>
-				<li style="margin-top : -7px;"><a href="../myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
-				<li class="get-started"><a href="../prodListPage/prodListPage.do">여행 시작</a></li>
+				<li style="margin-top : -7px;"><a href="/myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
+				<li class="get-started"><a href="/prodListPage/prodListPage.do">여행 시작</a></li>
 			</ul>
 		</nav>
 		<!-- .nav-menu -->

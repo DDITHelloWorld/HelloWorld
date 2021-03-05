@@ -21,8 +21,8 @@ public class signUpAction implements IAction{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 실제 처리할 내용은 이곳에 기술하고 처리가 끝난 후에 보여줄 View페이지를 반환하면 된다.
-
-		return "/firstPage/member_js.html";
+		System.out.println("왔당ㅇㅇㅇ");
+		return "/firstPage/firstPage.jsp";
 	}
 
 }
