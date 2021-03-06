@@ -33,5 +33,19 @@
     								#member_address#, #member_birthday#, 0, #member_phone#, #member_email#)
 	</insert>
 	
+	<select id="allIdCheck" parameterClass="String" resultClass="int">
+		select count(*) from id_info where id_check = #id_check#
+	</select>
+
+	<select id="adminVoInfomation" parameterClass="adminVo" resultClass="adminVo">
+		select * from admin_infomation
+ 		 where admin_id = #admin_id#
+  		   and admin_password = #admin_password#
+	</select>
+	<select id="guideVoInfomation" parameterClass="guideVo" resultClass="guideVo">
+		select * from guide
+		 where guide_id = #guide_id#
+		   and guide_password = #guide_password# 
+	</select>
 	
 </sqlMap>

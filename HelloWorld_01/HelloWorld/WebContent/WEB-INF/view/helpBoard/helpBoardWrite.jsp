@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@page import="kr.or.ddit.vo.HelpBoardVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,7 +21,7 @@
 <link href="<%=request.getContextPath() %>/css/mainStyle.css" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/images/hwicon.png" rel="icon">
 <link href="<%=request.getContextPath() %>/images/apple-touch-icon.png" rel="apple-touch-icon">
-<script src="<%=request.getContextPath() %>/js/helloWorld.js"></script>
+<script src="<%=request.getContextPath() %>/js/helpBoard.js"></script>
 
 <style>
 
@@ -117,9 +118,11 @@ form{
  	color : black;
 }
 </style>
-
+<%
+	MemberVO vo = (MemberVO)request.getSession().getAttribute("loginVo");
+%>
 <div class="box">
-   <form id="btnForm">
+   
 	<h2>문의게시판</h2>
 	<h3>문의 작성하기</h3>
    	<!-- 작성 폼 -->
@@ -137,7 +140,7 @@ form{
 		<tr>
 			<td>작성자</td>
 			<td>
-				<input type="text" name="member_no" id="member_no">
+				<input type="text" name="member_id" id="member_id" value="<%=vo.getMember_id() %>">
 			</td>
 		</tr>
 		
@@ -167,7 +170,7 @@ form{
 		
 		<tr>
 			<td colspan="2">
-				<input id="writeBtn" type="button" value="등록">
+				<input id="writeBtn" type="submit" value="등록">
 				<input type="reset" value="취소">
 				<input type="button" value="돌아가기" id="allList">
 			</td>
@@ -177,22 +180,23 @@ form{
 </div>
 <script>
   
-<%--  $(function(){
+ $(function(){
 	
-	 $('#writeForm').on('click', function(){	 
-		 readServer();
-		 location.href="<%=request.getContextPath()%>/helpBoard/main.do";
+	 $('#writeBtn').on('click', function(){	 
+		event.preventDefault(); 
+		// todo 글쓰기 submit 대신 ajax로 action call 구현.
+		writeHelpBoard_submit();
 	 })
 	 
- })  --%>
+ })
   
- $(function(){
+//  $(function(){
 	  
-	  $('#allList').on('click', function(){
+// 	  $('#allList').on('click', function(){
 			
-		 location.href="<%=request.getContextPath() %>/helpBoardPage/main.do";
-	  })
-  })
+<%-- 		 location.href="<%=request.getContextPath() %>/helpBoardPage/main.do"; --%>
+// 	  })
+//   })
   
   
 </script>

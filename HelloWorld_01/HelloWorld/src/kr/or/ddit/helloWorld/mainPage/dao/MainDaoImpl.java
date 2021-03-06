@@ -34,4 +34,16 @@ public class MainDaoImpl implements IMaindao {
 		return cnt;
 	}
 
+	@Override
+	public int id_authority(String loginId) {
+		int cnt = 0;
+
+		try {
+			cnt = (int) smc.queryForObject("mypage.authorityCheck", loginId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
 }

@@ -20,7 +20,7 @@
 <link href="<%=request.getContextPath() %>/css/mainStyle.css" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/images/hwicon.png" rel="icon">
 <link href="<%=request.getContextPath() %>/images/apple-touch-icon.png" rel="apple-touch-icon">
-<script src="<%=request.getContextPath() %>/js/helloWorld.js"></script>
+<script src="<%=request.getContextPath() %>/js/helpBoard.js"></script>
 
 <style>
 
@@ -178,23 +178,23 @@ form{
 </div>
 
 <!-- 글쓰기버튼 -->
-	<button type="button" class="btn btn-success">글쓰기</button>
+	<button type="button" id="writeBtn" class="btn btn-success">글쓰기</button>
 		
    </form>
 
 </div>
 <script>
-  $(function () {
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+//   $(function() {
+//     $('#example2').DataTable({
+//       "paging": true,
+//       "lengthChange": false,
+//       "searching": false,
+//       "ordering": true,
+//       "info": true,
+//       "autoWidth": false,
+//       "responsive": true,
+//     });
+//   });
   
   $(function(){
 		
@@ -213,8 +213,9 @@ form{
   })
   
   $(function(){
-	
-	  $('.btn').on('click', function(){
+	  $('#btnForm').on('click','#writeBtn', function(){
+		  alert("aa");
+		  console.log("aaaaa");
 		  writeHelpBoard();
 	  })
   })

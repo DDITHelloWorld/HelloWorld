@@ -24,6 +24,10 @@ public class MainServiceImpl implements IMainService{
 		return mainDao.idCheck(memVo);
 	}
 	
-	
+	@Override
+	public int id_authority(String loginId) {
+		
+		return mainDao.id_authority(loginId);
+	}	
 
 }

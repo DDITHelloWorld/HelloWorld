@@ -20,7 +20,7 @@
 <link href="<%=request.getContextPath() %>/css/mainStyle.css" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/images/hwicon.png" rel="icon">
 <link href="<%=request.getContextPath() %>/images/apple-touch-icon.png" rel="apple-touch-icon">
-<script src="<%=request.getContextPath() %>/js/helloWorld.js"></script>
+<script src="<%=request.getContextPath() %>/js/helpBoard.js"></script>
 
 <style>
 
