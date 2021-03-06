@@ -8,7 +8,6 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
 	<div class="container-fluid d-flex">
-
 		<div class="logo mr-auto">
 			<h1 class="text-light">
 				<a href = "../header/mainPage.do"><img src="../images/hwicon.png"><span>Hello, World!</span>
@@ -40,7 +39,6 @@
 	<br>
 
 	<div class="container-fluid d-flex second-nav">
-
 		<!-- 두 번째 nav -->
 		<nav class="nav-menu d-none d-lg-block">
 			<ul>
@@ -53,4 +51,14 @@
 		<!-- .nav-menu -->
 		<br>
 	</div>
+	
 </header>
+<script src="../js/helpBoard.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+
+$('#helpBoard').on('click',function(){
+	viewHelpBoard();
+})
+</script>

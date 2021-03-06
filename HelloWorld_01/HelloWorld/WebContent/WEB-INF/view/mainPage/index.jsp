@@ -45,6 +45,7 @@
 
 <body>
 	<jsp:include page="../header/header_main.jsp"></jsp:include>
+	<main id="main">
 	<!-- ======= Hero Section ======= -->
 	<section id="hero" class="d-flex align-items-center">
 
@@ -59,7 +60,7 @@
 	</section>
 	<!-- End Hero -->
 
-	<main id="main"> <!-- ======= top10 Section ======= -->
+	<!-- ======= top10 Section ======= -->
 	<section id="top10" class="clients section-bg">
 		<div class="container">
 
@@ -146,7 +147,6 @@
 	<script src="../mainVendor/venobox/venobox.min.js"></script>
 	<script src="../mainVendor/owl.carousel/owl.carousel.min.js"></script>
 	<script src="../mainVendor/aos/aos.js"></script>
-	<script src="../js/sb-admin-2.min.js"></script>
 
 	<!-- Template Main JS File -->
 	<script src="../js/mainMain.js"></script>

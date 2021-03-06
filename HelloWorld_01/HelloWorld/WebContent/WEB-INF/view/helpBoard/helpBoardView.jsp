@@ -23,7 +23,7 @@
 <link href="../css/mainStyle.css" rel="stylesheet">
 <link href="../images/hwicon.png" rel="icon">
 <link href="../images/apple-touch-icon.png" rel="apple-touch-icon">
-<script src="../js/helloWorld.js"></script>
+<script src="../js/helpBoard.js"></script>
 
 <style>
 div{
@@ -160,9 +160,8 @@ $(function(){
 		
 	})   
 	
-	$('#helpBoard').on('click',function(){
-			viewHelpBoard();
-		
+	$(document).on('click','#helpBoard',function(){
+		viewHelpBoard();
 	})
 	
 })

@@ -71,7 +71,7 @@
                                 <input type="text" class="form-control" id="id" placeholder="Enter id" name="member_id" value="">
                             </div>
                             <button class="btn btn-success btn-sm" id="idbtn" type="button">아이디중복검사</button>
-                            <div class="msg"></div>
+                            <div class="msg" id = "idspan"></div>
                         </div>
 
                         <div class="form-group">

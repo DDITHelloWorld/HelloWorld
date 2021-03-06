@@ -34,9 +34,12 @@
 	 <typeAlias alias = "guideVo" type = "kr.or.ddit.vo.GuideVO"></typeAlias>
 	 <typeAlias alias = "memVo" type = "kr.or.ddit.vo.MemberVO"></typeAlias>
 	 <typeAlias alias = "id_infoVo" type = "kr.or.ddit.vo.Id_infoVO"></typeAlias>
-	 <typeAlias alias = "orderVo" type="kr.or.ddit.vo.OrderVO"/>
 	 <typeAlias alias = "wishListVo" type="kr.or.ddit.vo.WishListVO"/>
 	 <typeAlias alias = "reviewVo" type="kr.or.ddit.vo.ReviewVO"/>
+	 <typeAlias alias = "mpoVo" type="kr.or.ddit.vo.MyPageOrderVO"/>
+	 <typeAlias alias = "orderVo" type="kr.or.ddit.vo.OrderVO"/>
+	 <typeAlias alias = "adminVo" type="kr.or.ddit.vo.AdminVO"/>
+	 <typeAlias alias = "myHelpVo" type="kr.or.ddit.vo.MyPageHelpVO"/>
 	 	
 	 <!-- DB와의 연결을 처리하는 부분 -->
 	 <transactionManager type="JDBC">

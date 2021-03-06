@@ -26,10 +26,13 @@ function idCheck() {
 		return false;
 	}
 	$.post(
-		'/member/ID.do',
+		'/HelloWorld/firstPage/idCheck.do',
 		{ "id" : idvalue },
-		function(res) {
-			$('#idspan').html(res.sw).css('color', 'red');
+		function(data) {
+			if(data == "OK")
+			$('#idspan').html("사용가능한 ID").css('color', 'red');
+			
+			alert(data);
 		},
 		'json'
 	)
