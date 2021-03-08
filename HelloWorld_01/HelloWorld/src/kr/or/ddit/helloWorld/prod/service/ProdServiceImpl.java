@@ -140,4 +140,31 @@ public class ProdServiceImpl implements IProdService {
 		return vo;
 	}
 
+	@Override
+	public int selectWishCnt(int prod_no) {
+		int cnt = 0;
+
+		try {
+			cnt = dao.selectWishCnt(prod_no);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
+	@Override
+	public int updateViews(int prod_no) {
+		int cnt = 0;
+
+		try {
+			cnt = dao.updateViews(prod_no);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
+
 }

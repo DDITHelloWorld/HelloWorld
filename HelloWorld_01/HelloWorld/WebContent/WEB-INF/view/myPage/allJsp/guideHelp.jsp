@@ -1,3 +1,5 @@
+<%@page import="kr.or.ddit.vo.GuideVO"%>
+<%@page import="kr.or.ddit.vo.GuideHelpBoardVO"%>
 <%@page import="kr.or.ddit.vo.MyPageHelpVO"%>
 <%@page import="kr.or.ddit.vo.HelpBoardVO"%>
 <%@page import="java.util.List"%>
@@ -6,13 +8,17 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	List<MyPageHelpVO> helplist = (List<MyPageHelpVO>) request.getAttribute("mphVo");
+	List<GuideHelpBoardVO> helplist = (List<GuideHelpBoardVO>) request.getAttribute("guideHelpList");
+	GuideVO vo = (GuideVO) request.getSession().getAttribute("loginVo");
 %>
 <style>
 #toHelpBoard{
 	background-color: transparent;
     border: none;
     color: black;
+}
+#writeBtn{
+	float : right;
 }
 </style>
 
@@ -43,15 +49,15 @@
 
 				<%
 					} else {
-						for (MyPageHelpVO helpVo : helplist) {
+						for (GuideHelpBoardVO helpVo : helplist) {
 				%>	
 					
 			<tr>
-				<td><%=helpVo.getHelp_no() %></td>
-				<td><%=helpVo.getHelp_title() %></td>
-				<td><%=helpVo.getHelp_content() %></td>
-				<td><%=helpVo.getHelp_date() %></td>
-				<td><%=helpVo.getMember_name() %></td>
+				<td><%=helpVo.getG_help_no() %></td>
+				<td><%=helpVo.getG_help_title() %></td>
+				<td><%=helpVo.getG_help_content() %></td>
+				<td><%=helpVo.getG_help_date() %></td>
+				<td><%=vo.getGuide_name() %></td>
 			</tr>
 
 				<%
@@ -64,6 +70,9 @@
 	</table>
 </div>
 
+<!-- 글쓰기버튼 -->
+	<button type="button" id="writeBtn" class="btn btn-success">글쓰기</button>
+		
 
 <script>
   $(function () {

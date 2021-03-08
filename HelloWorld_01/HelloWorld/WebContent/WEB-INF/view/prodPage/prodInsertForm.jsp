@@ -198,17 +198,17 @@ $(function(){
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">관광명소 검색</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
-					<input type="text" id="atrReg"> <input type="button"
-						id="atrRegbtn" value="확인"> <br>
+					<input type="text" id="atrReg">
+					 <input type="button" id="atrRegbtn" value="확인"> <br>
 					<br>
 					<div id="atrresult"></div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 				</div>
 			</div>
 

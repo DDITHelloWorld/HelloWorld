@@ -16,39 +16,39 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">아이디</label>
-                    <a><%=request.getSession().getAttribute("loginId")%></a>
+                    <a class="right-setting"><%=request.getSession().getAttribute("loginId")%></a>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">비밀번호</label>
-                    <a>****</a>
+                    <a class="right-setting">****</a>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">이름</label>
-                     <a><%=vo.getMember_name() %></a>
+                     <a class="right-setting"><%=vo.getMember_name() %></a>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">보유포인트</label>
-                      <a><%=vo.getMember_point() %></a>
+                      <a class="right-setting"><%=vo.getMember_point() %></a>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">보유마일리지</label>
-                      <a><%=vo.getMember_milleage() %></a>
+                      <a class="right-setting"><%=vo.getMember_milleage() %></a>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">회원등급</label>
-                      <a><%=vo.getMember_authority() %></a>
+                      <a class="right-setting"><%=vo.getMember_authority() %></a>
                   </div>  
                   <div class="form-group">
                     <label for="exampleInputFile">주소</label>
-                      <a><%=vo.getMember_address() %></a>
+                      <a class="right-setting"><%=vo.getMember_address() %></a>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">연락처</label>
-                      <a><%=vo.getMember_phone() %></a>
+                      <a class="right-setting"><%=vo.getMember_phone() %></a>
                   </div>     
                   <div class="form-group">
                     <label for="exampleInputFile">이메일</label>
-                      <a><%=vo.getMember_email() %></a>
+                      <a class="right-setting"><%=vo.getMember_email() %></a>
                   </div>                                                                   
                 </div>
                 <!-- /.card-body -->

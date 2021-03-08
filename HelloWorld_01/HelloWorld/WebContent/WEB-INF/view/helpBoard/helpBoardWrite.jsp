@@ -117,6 +117,10 @@ form{
 .nav-menu a {
  	color : black;
 }
+
+#writeForm .column{
+	text-align : center;
+}
 </style>
 <%
 	MemberVO vo = (MemberVO)request.getSession().getAttribute("loginVo");
@@ -131,21 +135,21 @@ form{
 	<table border="1">
 		
 		<tr>
-			<td>제목</td>
+			<td class ="column">제목</td>
 			<td>
 				<input type="text" name="help_title" id="help_title">
 			</td>
 		</tr>
 		
 		<tr>
-			<td>작성자</td>
+			<td class ="column">작성자</td>
 			<td>
-				<input type="text" name="member_id" id="member_id" value="<%=vo.getMember_id() %>">
+				<input type="text" name="member_id" id="member_id" value="<%=vo.getMember_id() %>" readonly>
 			</td>
 		</tr>
 		
 		<tr>
-			<td>카테고리</td>
+			<td class ="column">카테고리</td>
 			<td>
 				<select class="custom-select rounded-0" id="help_category" name="help_category">
                      <option>상품문의</option>
@@ -156,15 +160,9 @@ form{
 			</td>
 		</tr>
 		
-		<tr>
-			<td>작성날짜</td>
-			<td>
-				<input type="text" name="help_date" id="help_date">
-			</td>
-		</tr>
 		
 		<tr>
-			<td>내용</td>
+			<td class ="column">내용</td>
 			<td><textarea name="help_content" cols="72" rows="20"></textarea></td>
 		</tr>
 		

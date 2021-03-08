@@ -218,7 +218,7 @@ div#preloader {
   content: "";
   height: 100%;
   left: 0;
-  opacity: 0.5;
+  opacity: 0.2;
   position: absolute;
   top: 0;
   width: 100%;
@@ -582,6 +582,7 @@ preview-2
 .niceties.preview-2 {
   position: relative;
   height: 100%;
+  background-image: linear-gradient(#AECDFF, #F9F9F9);
 }
 
 /*--------------------------------------------------------------
@@ -2424,4 +2425,57 @@ span.email-notes {
   .slider-content {
     padding: 0;
   }
+}
+
+#ensign-nivoslider {
+	height :800px;
+	
+}
+.contact-inner .col-md-6{
+	text-align: right;
+}
+.contact-inner .col-md-6 img{
+	margin-right: 35px;
+	border-radius : 25px;
+	border: 1px solid lightgray;
+}
+.guideForm{
+	text-align: left;
+}
+
+.rating{
+	color : #4169E1;
+}
+.accordion {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+table {
+width :1140px;
+}
+
+table tr:last-chlid td{
+	width :100%;
+}
+.start_trip{
+    text-align: center;
+    margin-top: auto;
+    padding: 80px;
 }

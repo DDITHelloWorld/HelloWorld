@@ -26,7 +26,7 @@
 
     <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="../mp4/bg.mp4" type="video/mp4">
+        <source src="../mp4/firstPage01.mp4" type="video/mp4">
     </video>
 
     <div class="masthead">
@@ -167,11 +167,11 @@
     
     <div class="social-icons">
         <ul class="list-unstyled text-center mb-0">
-            <li class="list-unstyled-item"><a href="#"> <i class="fab fa-twitter"></i>
+            <li class="list-unstyled-item"><a href="https://www.instagram.com/"> <i class="fab fa-twitter"></i>
                 </a></li>
-            <li class="list-unstyled-item"><a href="#"> <i class="fab fa-facebook-f"></i>
+            <li class="list-unstyled-item"><a href="https://m.facebook.com/?locale2=ko_KR"> <i class="fab fa-facebook-f"></i>
                 </a></li>
-            <li class="list-unstyled-item"><a href="#"> <i class="fab fa-instagram"></i>
+            <li class="list-unstyled-item"><a href="https://www.instagram.com/"> <i class="fab fa-instagram"></i>
                 </a></li>
         </ul>
     </div>

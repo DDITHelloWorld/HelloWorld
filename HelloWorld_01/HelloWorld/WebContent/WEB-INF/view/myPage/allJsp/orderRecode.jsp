@@ -1,11 +1,11 @@
+<%@page import="kr.or.ddit.vo.MyPageOrderVO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.vo.OrderVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-	List<OrderVO> list = (List<OrderVO>) request.getAttribute("orderVo");
-	int a = list.get(0).getMember_no();
+	List<MyPageOrderVO> list = (List<MyPageOrderVO>) request.getAttribute("moVo");
 %>
 
 <div>
@@ -16,7 +16,7 @@
 				<tr>
 					<th>주문번호</th>
 					<th>상품번호</th>
-					<th>회원번호</th>
+					<th>회원명</th>
 					<th>주문날짜</th>
 					<th>주문상태</th>
 				</tr>
@@ -28,19 +28,19 @@
 				%>
 
 				<tr>
-					<td colspan="4">회원이 하나도 없습니다.
+					<td colspan="5">주문내역이 없습니다.
 				</tr>
 
 				<%
 					} else {
-						for (OrderVO orderVo : list) {
+						for (MyPageOrderVO moVo : list) {
 				%>
 				<tr>
-					<td><%=orderVo.getOrder_no()%></td>
-					<td><%=orderVo.getProd_no()%></td>
-					<td><%=orderVo.getMember_no()%></td>
-					<td><%=orderVo.getOrder_date()%></td>
-					<td><%=orderVo.getOrder_state()%></td>
+					<td><%=moVo.getOrder_no()%></td>
+					<td><%=moVo.getProd_name()%></td>
+					<td><%=moVo.getMember_name()%></td>
+					<td><%=moVo.getOrder_date()%></td>
+					<td><%=moVo.getOrder_state()%></td>
 				</tr>
 
 
@@ -54,8 +54,8 @@
 			<tfoot>
 				<tr>
 					<th>Order Number</th>
-					<th>Goods Number</th>
-					<th>Member No</th>
+					<th>Goods Name</th>
+					<th>Member Name</th>
 					<th>Order Date</th>
 					<th>Order State</th>
 				</tr>

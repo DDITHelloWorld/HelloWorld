@@ -1,17 +1,25 @@
 <!DOCTYPE html>
+<%@page import="kr.or.ddit.vo.MyWishVO"%>
+<%@page import="kr.or.ddit.vo.MyPageHelpVO"%>
+<%@page import="kr.or.ddit.vo.HelpBoardVO"%>
+<%@page import="kr.or.ddit.vo.MyPageOrderVO"%>
 <%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@page import="kr.or.ddit.vo.OrderVO"%>
-<%@page import="kr.or.ddit.vo.WishListVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
     
 <%
 	MemberVO vo = (MemberVO) request.getAttribute("memberInfo");
 
-	List<WishListVO> wishList = (List<WishListVO>) request.getAttribute("wishVo");
+	List<MyWishVO> wishList = (List<MyWishVO>) request.getAttribute("wishVo");
 
-	List<OrderVO> orderList = (List<OrderVO>) request.getAttribute("orderVo");
+	List<MyPageOrderVO> orderList = (List<MyPageOrderVO>) request.getAttribute("moVo");
+
+	List<MyPageHelpVO> helpList = (List<MyPageHelpVO>) request.getAttribute("mphVo");
+	
 %>    
     
     
@@ -44,6 +52,9 @@
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
   
   <style type="text/css">
+.right-setting{
+	float: right;
+}
 .container{
 	max-width : 94%;
 }
@@ -53,6 +64,20 @@
 #myPageHomeButton{
 	background-color: transparent;
     border: none;
+}
+#logoutButton{
+	background-color: transparent;
+    border: none;
+    float: right;
+    padding: 0px;
+    margin : 0px 5px;
+}
+#helloWorldButton{
+	background-color: transparent;
+    border: none;
+    color:white;
+    font-weight: bold;
+    font-size: 1.2em;
 }
   </style>
 </head>
@@ -91,20 +116,25 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
+     	<form class="nav-link" id="logoutButton" action="<%=request.getContextPath()%>/firstPage/firstPage.do">
+        	<input type="submit" id="logoutButton" class="nav-link" value="로그아웃"/>
+      	</form>
+      </li>
+    
+      <li class="nav-item dropdown">
     	<a class="nav-link" href="#">
 		  <img alt="돋보기" src="../images/search.png" width="25">
 		</a>
       </li>
     	
       <li class="nav-item dropdown">
-    	<a class="nav-link" href="#">
+    	<a id="wishList2"  class="nav-link" href="#">
 		  <img alt="찜목록" src="../images/heart.png" width="25">
 		</a>
       </li>
 
-      </li>
       <li class="nav-item dropdown">
-    	<a class="nav-link" href="#">
+    	<a id="myInfomationHome2"  class="nav-link" href="#">
 		  <img alt="마이페이지" src="../images/person.png" width="25">
 		</a>
       </li>
@@ -127,11 +157,11 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <form action="<%=request.getContextPath() %>/firstPage/mainPage.do" method="post">
+    <form action="<%=request.getContextPath() %>/allPage/mainPageHome.do" method="post">
     	<a href="#" class="brand-link">
-      <img src="../images/hwicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Hello World!</span>
-    </a>
+	      <img src="../images/hwicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+	      <input type="submit" class="brand-text font-weight-light" id="helloWorldButton" value="Hello World!">
+  	 	</a>
     </form>
 
     <!-- Sidebar -->
@@ -176,7 +206,7 @@
               <li class="nav-item">
                 <a href="../pages/UI/general.html" id="myInfomationHome" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>내정보 홈</p>
+                  <p>내 정보 홈</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -193,8 +223,8 @@
               </li>
            </ul>
           </li>
-
-          <li class="nav-item">
+   		
+           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -227,7 +257,6 @@
                   <p>문의 내역</p>
                 </a>
               </li>              
-              
             </ul>
           </li>
           
@@ -387,12 +416,12 @@
 				<div class="container">
 					<h2><br>방문한 여행지</h2>
 					<p>주문 내역</p>
-					<table class="table table-striped">
+					<table id="example2" class="table table-striped">
 						<thead>
 							<tr>
 								<th>주문번호</th>
-								<th>상품번호</th>
-								<th>회원번호</th>
+								<th>상품명</th>
+								<th>회원명</th>
 								<th>주문날짜</th>
 								<th>주문상태</th>
 							</tr>
@@ -404,18 +433,18 @@
 							%>
 
 							<tr>
-								<td colspan="4">주문내역이 없습니다.
+								<td colspan="5">주문내역이 없습니다.
 							</tr>
 			
 							<%
 								} else {
-									for (OrderVO orderVo : orderList) {
+									for (MyPageOrderVO orderVo : orderList) {
 							%>				
 													
 							<tr>
 								<td><%=orderVo.getOrder_no()%></td>
-								<td><%=orderVo.getProd_no()%></td>
-								<td><%=orderVo.getMember_no()%></td>
+								<td><%=orderVo.getProd_name()%></td>
+								<td><%=orderVo.getMember_name()%></td>
 								<td><%=orderVo.getOrder_date()%></td>
 								<td><%=orderVo.getOrder_state()%></td>
 							</tr>
@@ -456,14 +485,14 @@
 			
 							<%
 								} else {
-									for (WishListVO wishVo : wishList) {
+									for (MyWishVO wishVo : wishList) {
 							%>
 										
 							<tr>
 								<td><%=wishVo.getWishlist_no() %></td>
+								<td><%=wishVo.getProd_name() %></td>
+								<td><%=wishVo.getMember_name() %></td>
 								<td><%=wishVo.getWishlist_state() %></td>
-								<td><%=wishVo.getProd_no() %></td>
-								<td><%=wishVo.getMember_no() %></td>
 							</tr>
 
 							<%
@@ -484,14 +513,6 @@
       </div>
     </div>
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0-rc
-    </div>
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -573,6 +594,10 @@ $(function(){
 		openMyInfomationHome();
 	})
 	
+	$('#myInfomationHome2').on('click', function(){
+		openMyInfomationHome();
+	})
+	
 	$('#myInfomationUpdate').on('click', function(){
 		myInfomationUpdate();
 	})
@@ -589,6 +614,10 @@ $(function(){
 		openWishList();
 	})
 	
+	$('#wishList2').on('click', function(){
+		openWishList();
+	})
+	
 	$('#myReview').on('click', function(){
 		openMyReview();
 	})
@@ -596,12 +625,21 @@ $(function(){
 	$('#myHelpBoardList').on('click', function(){
 		openMyHelpBoardList();
 	})
+	
+	$('#example2').DataTable({
+		"paging" : true,
+		"lengthChange" : false,
+		"searching" : false,
+		"ordering" : true,
+		"info" : true,
+		"autoWidth" : false,
+		"responsive" : true,
+	});
 
 })
 
 </script>
 
- 
 
 
 </body>

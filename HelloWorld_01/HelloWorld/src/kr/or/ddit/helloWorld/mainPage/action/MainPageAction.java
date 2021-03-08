@@ -22,7 +22,7 @@ public class MainPageAction implements IAction {
 
 	@Override
 	public boolean isRedirect() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -75,9 +75,8 @@ public class MainPageAction implements IAction {
 				Session.setAttribute("authority", authority);
 				
 				Session.setAttribute("loginVo", adminVo);
-				return "/mainPage/index.jsp";
+				return "/header/mainPage.do";
 			}
-
 		} else if (authority == 1) {
 			// 가이드 아이디, 비밀번호 체크
 			GuideVO guideVo = new GuideVO();
@@ -98,7 +97,7 @@ public class MainPageAction implements IAction {
 				Session.setAttribute("authority", authority);
 				
 				Session.setAttribute("loginVo", guideVo);
-				return "/mainPage/index.jsp";
+				return "/header/mainPage.do";
 			}
 			
 		} else if (authority == 2) {
@@ -136,7 +135,8 @@ public class MainPageAction implements IAction {
 					Session.setAttribute("loginVo", memberVo);
 
 					// 로그인 후 메인페이지로 이동
-					return "/mainPage/index.jsp";
+					return "/header/mainPage.do";
+//					return "/mainPage/index.jsp";
 				}
 			}
 		}

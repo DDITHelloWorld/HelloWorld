@@ -1,6 +1,8 @@
 package kr.or.ddit.helloWorld.mainPage.dao;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import kr.or.ddit.util.SqlMapUtil;
@@ -33,7 +35,18 @@ public class MainDaoImpl implements IMaindao {
 		
 		return cnt;
 	}
+	
 
+	@Override
+	public List<Map<String, String>> selectTopProd() throws SQLException {
+		return smc.queryForList("prod.selectTopProd");
+	}
+
+	@Override
+	public List<Map<String, String>> selectMonthProd() throws SQLException {
+		return smc.queryForList("prod.selectMonthProd");
+	}
+	
 	@Override
 	public int id_authority(String loginId) {
 		int cnt = 0;
@@ -45,5 +58,5 @@ public class MainDaoImpl implements IMaindao {
 		}
 		return cnt;
 	}
-	
+
 }

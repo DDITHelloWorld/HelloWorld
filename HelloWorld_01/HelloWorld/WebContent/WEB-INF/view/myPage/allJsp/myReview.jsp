@@ -41,24 +41,13 @@
 					<td><%=reviewVo.getReview_date() %></td>
 				</tr>
 
-				
-
-			</tbody>
-			<tfoot>
-				<tr>
-					<th>Rendering engine</th>
-					<th>Browser</th>
-					<th>Platform(s)</th>
-					<th>Engine version</th>
-				</tr>
-				
 				<%
 						}
 					}
 				%>				
 				
-				
-			</tfoot>
+
+			</tbody>
 		</table>
 	</div>
 </div>
@@ -76,5 +65,5 @@
 			"autoWidth" : false,
 			"responsive" : true,
 		});
-	});
+	})
 </script>
