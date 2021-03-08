@@ -31,13 +31,6 @@ PROJECT HELLOWORLD
 - ddit → do로 변경
 - html → do로 변경
 
-
-### v1.03 2021_03_03
- - 상품목록게시판 추가 prod(sumi)
- - 마이페이지 추가 mypage(kimbo)
- - 문의게시판 추가 
- - 
-
 ### v1.03 2021_03_05
 
 ### firstPage
@@ -54,4 +47,20 @@ PROJECT HELLOWORLD
 - 내 정보 수정
 
 
+### v1.04 2021_03_08
+
+### merge
+- myPage_member/guide/admin
+- prodPage_member/guide/admin
+
+### prodPage
+- tripPage add
+
+### error
+1. sign_up
+2. help_borad_write
+3. write_button_modal
+
 ## TEAMMATES
+=======
+

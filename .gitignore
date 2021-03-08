@@ -24,3 +24,8 @@ tmp/**/*
 .cproject
 # PDT-specific
 .buildpath
+HelloWorld_01/HelloWorld/WebContent/mp4/경주월드.mp4
+HelloWorld_01/HelloWorld/WebContent/mp4/황리단길.mp4
+HelloWorld_01/HelloWorld/WebContent/mp4/firstPage.mp4
+HelloWorld_01/HelloWorld/WebContent/mp4/firstPage01.mp4
+HelloWorld_01/HelloWorld/WebContent/mp4/main.mp4

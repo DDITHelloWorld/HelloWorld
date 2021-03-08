@@ -1,10 +1,10 @@
-<%@page import="kr.or.ddit.vo.WishListVO"%>
+<%@page import="kr.or.ddit.vo.MyWishVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-	List<WishListVO> list = (List<WishListVO>) request.getAttribute("wishVo");
+	List<MyWishVO> wishList = (List<MyWishVO>) request.getAttribute("wishVo");
 %>
 
 <div>
@@ -14,15 +14,15 @@
 			<thead>
 				<tr>
 					<th>찜목록 번호</th>
+					<th>상품명</th>
+					<th>회원명</th>
 					<th>주문 상태</th>
-					<th>상품번호</th>
-					<th>회원번호</th>
 				</tr>
 			</thead>
 			<tbody>
 			
 				<%
-					if (list == null || list.size() == 0) {
+					if (wishList == null || wishList.size() == 0) {
 				%>
 
 				<tr>
@@ -31,13 +31,13 @@
 
 				<%
 					} else {
-						for (WishListVO wishVo : list) {
+						for (MyWishVO wishVo : wishList) {
 				%>
 				<tr>
 					<td><%=wishVo.getWishlist_no() %></td>
+					<td><%=wishVo.getProd_name() %></td>
+					<td><%=wishVo.getMember_name() %></td>
 					<td><%=wishVo.getWishlist_state() %></td>
-					<td><%=wishVo.getProd_no() %></td>
-					<td><%=wishVo.getMember_no() %></td>
 				</tr>
 
 				<%
@@ -46,14 +46,6 @@
 				%>
 
 			</tbody>
-			<tfoot>
-				<tr>
-					<th>Rendering engine</th>
-					<th>Browser</th>
-					<th>Platform(s)</th>
-					<th>Engine version</th>
-				</tr>
-			</tfoot>
 		</table>
 	</div>
 </div>

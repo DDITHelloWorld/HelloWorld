@@ -1,3 +1,5 @@
+<%@page import="kr.or.ddit.vo.Prod_insertVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,44 +31,34 @@
 <link href="../css/stylish-portfolio.min.css" rel="stylesheet">
 <link href="../css/headerFooterStyle.css" rel="stylesheet">
 <style>
-   	.half {
-        width: 100%;
-        height: 300px;
-        border: 1px solid #000;
-    }
-    .half.left {
-        width: 50%;
-        float: left;
-        box-sizing: border-box;
-    }
-    .half.right {
-        width: 50%;
-        float: right;
-        box-sizing: border-box;
-    }
+   
     .top {
         width: 100%;
         ]border: 1px solid #000;
     }
-    .top.movie{
-        width: 70%;
-        float: left;
-        box-sizing: border-box;
-    }
-    .top.chat{
-        width: 30%;
-        float: right;
-        box-sizing: border-box;
-    } 
+   
     footer.footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
     clear: both;
 }
-    </style>
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 0;
+}
+</style>
+<%
+	List<Prod_insertVO> list = (List<Prod_insertVO>)request.getAttribute("list");
+%>
 </head>
 <body id="page-top">
-	<jsp:include page="../header/header_main.jsp"></jsp:include>
 	
 	<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
@@ -74,80 +66,40 @@
 	<nav id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand"><a class="js-scroll-trigger"
-				href="#page-top">Start Bootstrap</a></li>
+				href="#">🛫Have a nice Trip!</a></li>
 			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#page-top">Home</a></li>
+				href="#services">MyPage</a></li>
 			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#about">About</a></li>
+				href="../header/mainPage.do">Home</a></li>
 			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#services">Services</a></li>
+				href="<%=request.getContextPath()%>/prod/SelectProd.do?prod_no=<%=list.get(0).getProd_no()%>">About</a></li>
+				<hr>
 			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#portfolio">Portfolio</a></li>
+				href="#">Team</a></li>
 			<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-				href="#contact">Contact</a></li>
+				href="#">💃💃SUMIMACHIJO!!💃💃</a></li>
 		</ul>
 	</nav>
 
 	<!-- Callout -->
-	<section class="callout top movie">
 		<div class="container text-center">
-			<h2 class="mx-auto mb-5">
-				Welcome to <em>your</em> next website!
-			</h2>
-			<a class="btn btn-primary btn-xl"
-				href="https://startbootstrap.com/theme/stylish-portfolio/">Download
-				Now!</a>
+		    <div class="overlay"></div>
+		    <button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
+		    <video id = "myvideo" controls autoplay>
+		    <%
+		    	if(list.get(0).getAttraction_video() != null){
+		    %>
+		        	<source src="<%=request.getContextPath()%><%=list.get(0).getAttraction_video()%>" type="video/mp4">
+		    <%
+		    	}else{
+    		%>
+    				<source src="<%=request.getContextPath()%>/mp4/bg.mp4" type="video/mp4">
+    		<%
+		    		
+		    	}
+		    %> 
+		    </video>
 		</div>
-	</section>
-	<section class="callout top chat">
-		<div class="container text-center">
-			<h2 class="mx-auto mb-5">
-				Welcome to <em>your</em> next website!
-			</h2>
-			<a class="btn btn-primary btn-xl"
-				href="https://startbootstrap.com/theme/stylish-portfolio/">Download
-				Now!</a>
-		</div>
-	</section>
-	
-	
-	<!-- Map -->
-	<div id="contact" class="half left">
-	</div>
-	<div id="contact" class="map half right">
-		<iframe
-			src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-		<br /> <small> <a
-			href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-		</small>
-	</div>
-
-	<!-- Footer -->
-	<footer class="footer text-center">
-		<div class="container">
-			<ul class="list-inline mb-5">
-				<li class="list-inline-item"><a
-					class="social-link rounded-circle text-white mr-3" href="#!"> <i
-						class="icon-social-facebook"></i>
-				</a></li>
-				<li class="list-inline-item"><a
-					class="social-link rounded-circle text-white mr-3" href="#!"> <i
-						class="icon-social-twitter"></i>
-				</a></li>
-				<li class="list-inline-item"><a
-					class="social-link rounded-circle text-white" href="#!"> <i
-						class="icon-social-github"></i>
-				</a></li>
-			</ul>
-			<p class="text-muted small mb-0">Copyright &copy; Your Website
-				2020</p>
-		</div>
-	</footer>
-
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-		<i class="fas fa-angle-up"></i>
-	</a>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="../vendor/jquery/jquery.min.js"></script>
@@ -161,4 +113,35 @@
 
 </body>
 
+<script>
+
+var elem = document.getElementById("myvideo");
+
+function openFullscreen() {
+
+  if (elem.requestFullscreen) {
+
+    elem.requestFullscreen();
+
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+
+    elem.mozRequestFullScreen();
+
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+
+    elem.webkitRequestFullscreen();
+
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+
+    elem.msRequestFullscreen();
+
+  }
+
+}
+
+</script>
+
+
+
 </html>
+

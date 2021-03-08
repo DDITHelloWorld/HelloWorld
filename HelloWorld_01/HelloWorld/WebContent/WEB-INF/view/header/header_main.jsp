@@ -20,13 +20,12 @@
 		<!-- 첫 번째 nav -->
 		<nav class="hfirst-nav nav-menu d-none d-lg-block">
 			<ul>
-				<li><a href="#" class = "dropdown-toggle" data-toggle="dropdown">Dropdown Example</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">HTML</a></li>
-						<li><a href="#">CSS</a></li>
-						<li><a href="#">JavaScript</a></li>
-					</ul></li>
-				<!--           <li class="active"><a href="index.html">Home</a></li> -->
+			    <li class="nav-item dropdown">
+	       			<form class="nav-link" id="logoutButton" action="<%=request.getContextPath()%>/firstPage/firstPage.do">
+	           			<input type="submit" id="logoutButton" class="nav-link" value="로그아웃"/>
+			        </form>
+		        </li>
+				<!--  <li class="active"><a href="index.html">Home</a></li> -->
 				<li><a href="#about"><img alt="돋보기" src="../images/search.png" width="25"></a></li>
 				<li><a href="#services"><img alt="찜목록" src="../images/heart.png" width="30"></a></li>
 				<li style="margin-top : -7px;"><a href="../myPage/myPageMain.do"><img alt="마이페이지" src="../images/person.png" width="40"></a></li>
@@ -62,3 +61,15 @@ $('#helpBoard').on('click',function(){
 	viewHelpBoard();
 })
 </script>
+<style>
+<!--
+
+-->
+#logoutButton {
+    background-color: transparent;
+    border: none;
+    float: right;
+    padding: 0px;
+    margin: 5px 5px;
+}
+</style>

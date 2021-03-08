@@ -71,4 +71,14 @@ public class ProdDaoImpl implements IProdDao {
 		return (GuideVO)client.queryForObject("prod.selectGuide", prod_no);
 	}
 
+	@Override
+	public int selectWishCnt(int prod_no) throws SQLException {
+		return (int)client.queryForObject("prod.selectWishCnt", prod_no);
+	}
+
+	@Override
+	public int updateViews(int prod_no) throws SQLException {
+		return (int)client.update("prod.updateViews", prod_no);
+	}
+
 }

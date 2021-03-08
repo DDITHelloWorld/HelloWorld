@@ -39,4 +39,11 @@ public interface IProdDao {
 	
 	// select - guide정보
 	public GuideVO selectGuide(int prod_no) throws SQLException;
+	
+	// select - 찜개수
+	public int selectWishCnt(int prod_no) throws SQLException;
+	
+	// update - prod 조회수
+	public int updateViews(int prod_no)	throws SQLException;
+
 }

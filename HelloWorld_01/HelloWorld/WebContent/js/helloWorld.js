@@ -2,6 +2,58 @@
  * 
  */
 
+fromHelpBoardList = function(){
+	$.ajax({
+		url : '/HelloWorld/myPage/fromHelpBoardList.do',
+		type : 'post',
+		data : { },
+		dataType : 'html',
+		success : function(res){
+			// 출력
+			$('#outPutMainView').empty();
+			$('#outPutMainView').append(res);
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		}
+	})		
+}
+
+
+guideReviewReplyList = function(){
+	$.ajax({
+		url : '/HelloWorld/myPage/guideReviewReplyList.do',
+		type : 'post',
+		data : { },
+		dataType : 'html',
+		success : function(res){
+			// 출력
+			$('#outPutMainView').empty();
+			$('#outPutMainView').append(res);
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		}
+	})		
+}
+
+guideProdList = function(){
+	$.ajax({
+		url : '/HelloWorld/myPage/guideProdList.do',
+		type : 'post',
+		data : { },
+		dataType : 'html',
+		success : function(res){
+			// 출력
+			$('#outPutMainView').empty();
+			$('#outPutMainView').append(res);
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		}
+	})		
+}
+
 writeHelpBoard = function(){
 	
 	$.ajax({

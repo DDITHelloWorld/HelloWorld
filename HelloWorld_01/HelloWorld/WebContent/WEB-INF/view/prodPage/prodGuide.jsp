@@ -1,3 +1,5 @@
+<%@page import="java.awt.Button"%>
+<%@page import="kr.or.ddit.vo.AdminVO"%>
 <%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="kr.or.ddit.vo.GuideVO"%>
@@ -47,7 +49,53 @@
 <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 
 <style type="text/css">
+#ensign-nivoslider {
+	height :800px;
+	
+}
+.contact-inner .col-md-6{
+	text-align: right;
+}
+.contact-inner .col-md-6 img{
+	margin-right: 35px;
+	border-radius : 25px;
+	border: 1px solid lightgray;
+}
+.guideForm{
+	text-align: left;
+}
 
+.rating{
+	color : #4169E1;
+}
+.accordion {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+table {
+width :1140px;
+}
+
+table tr:last-chlid td{
+	width :100%;
+}
 
 </style>
 <!-- =======================================================
@@ -68,10 +116,24 @@
 %>
 <script>
 $(function(){
+	
 	var acc = document.getElementsByClassName("accordion");
 	var i;
 	
-	for (i = 0; i < acc.length; i++) {
+	
+	/* $('.row').on('click', '.accordion', function(){
+		
+		   this.classList.toggle("active");
+		    var panel = this.nextElementSibling;
+		    if (panel.style.display === "revert") {
+		      panel.style.display = "none";
+		    } else {
+		      panel.style.display = "revert";
+		    }
+		    
+		    
+	})) */
+	 for (i = 0; i < acc.length; i++) {
 	  acc[i].addEventListener("click", function() {
 	    this.classList.toggle("active");
 	    var panel = this.nextElementSibling;
@@ -80,8 +142,51 @@ $(function(){
 	    } else {
 	      panel.style.display = "revert";
 	    }
+	    
+	   
+	    
+	    
 	  });
-	}
+	} 
+	
+	$('.phAnswer').on('click', function(){	// phAns + 번호
+		pHnum = $(this).attr('id').trim()
+		pHnum = pHnum.substring(5, pHnum.length); // 글 번호
+		console.log(pHnum);
+		phAnsCon = "#phAnsCon" + pHnum;	// 글 내용
+		phAnsCon = $(phAnsCon).val();
+		
+		pp = this;
+		
+		$.ajax({
+			url : "/HelloWorld/prodHelp/phAnswer.do",
+			data : {"pHnum" : pHnum, "phAnsCon" : phAnsCon},
+			type : "post",
+			success : function(res){
+				if(res.cnt > 0){
+					alert("성공!");
+					code = phAnsCon;
+					code = code.replace(/\r/g, "").replace(/\n/g, "<br>")
+					console.log(code);
+					$(pp).parent('.ansResult').empty().html(code);
+					$('.active').find('.ansChk').empty().text("답변완료");
+					//$(this).parents("td").append(code);
+// 					$(pp).parent('.ansResult').html(code);
+					
+				}else{
+					alert("실패..")
+				}
+			}, 
+			error : function(xhr){
+				alert("error : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+// 		phAnsCon = $(phAnsCon).val().replace(/\r/g, "").replace(/\n/g, "<br>");
+		
+		
+	})
+	
 })
 </script>
 </head>
@@ -142,7 +247,7 @@ $(function(){
 								<li><i class="fa fa-check"></i> 가격 : <%=list.get(0).getProd_price() %></li>
 								<li><i class="fa fa-check"></i> 여행 날짜 : <%=list.get(0).getProd_travel_date() %></li>
 								<li><i class="fa fa-check"></i> 최대 인원 : <%=list.get(0).getProd_travel_max()%> </li>
-								<li>❤ <%=wishCnt%> </li>
+								<li>👁 <%=list.get(0).getProd_views() %> &nbsp&nbsp&nbsp&nbsp&nbsp ❤ <%=wishCnt%> </li>
 								<hr>
 								<h6>여행지</h6>
 <%
@@ -245,81 +350,108 @@ $(function(){
 <%
 	HashMap hash = new HashMap();
 
-	// 1. 상품주인 no와 작성자 memberNo를 변수에 담는다.
 	int ownerNo =guideVo.getGuide_no();//상품주인
 	// 2. 로그인한 memberNo 혹은 guideNo 변수를 담는다.
-	GuideVO login_guide = null;
-	MemberVO login_member = null;
-	if(authority == 1) {
-		login_guide = (GuideVO)request.getSession().getAttribute("loginVo");
-	}else {
-		login_member = (MemberVO)request.getSession().getAttribute("loginVo");
-	}
-	
-	// 3. 출력 시 서로 비교해준다.
-		
-	// 4. 같지 않을 경우 비밀글의 경우 readonly로 바꿔준다.
+	GuideVO login_guide = (GuideVO)request.getAttribute("loginVo");
 	
 	for(HashMap<String, Object> phMap : phList){
 		
-		
-		
-		
-		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_PRIVATE"))) == 1){
-			// 비밀글일 때 비교 시작
-			if(Integer.parseInt(String.valueOf(phMap.get("MEMBER_NO"))) == login_member.getMember_no()){
+		// 판매한 가이드일 경우 보일 화면
+		if(ownerNo == login_guide.getGuide_no()){
 %>
 			      <tr class="accordion" >
+			        <td><%=phMap.get("P_HELP_NO") %></td>
+			        <td><%=phMap.get("MEMBER_ID") %></td> 
+			        <td><%=phMap.get("P_HELP_TITLE")%></td>
+			        <td><%=phMap.get("P_HELP_DATE") %></td>
+			        <td class="ansChk">
+<%
+			if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
+%>
+			        <%= "답변완료" %>
+<%
+			}else if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 0){
+%>			
+					<%= "미답변" %>
+<%
+			}
+%>
+				  </td></tr>
+				  <tr class="panel">
+				    <td colspan="5"><%= String.valueOf(phMap.get("P_HELP_CONTENT")).replaceAll("\r", "").replaceAll("\n","<br>") %>
+<%
+			if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
+				String phAns = String.valueOf(phMap.get("P_HELP_ANSWER")).replaceAll("\r", "").replaceAll("\n", "<br>");
+%>
+				  <hr>
+				   <%=phAns %>
 <%
 			}else{
+				if(authority == 1 && guideVo.getGuide_no() == login_guide.getGuide_no()){
+					
+%>
+				<br><hr>
+				<div class="ansResult"><textarea rows="2" cols="140" id="phAnsCon<%=phMap.get("P_HELP_NO")%>" ></textarea>
+				<input style="vertical-align : top" type="button" value="답변 작성" class="btn btn-outline-primary btn-sm phAnswer" id="phAns<%=phMap.get("P_HELP_NO") %>">
+				  </div></td>
+				</tr>
+
+<%		
+				}
+			}
+		// 판매한 가이드 X일 경우 보일 화면
+		}else{
+			if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_PRIVATE"))) == 1){
+				// 비밀글일 때
 %>
 				  <tr>
 <%	
-			}
-		}else{
+			}else{
 %>
 			      <tr class="accordion" >
 <%
-		}
+			}
 %>
 			        <td><%=phMap.get("P_HELP_NO") %></td>
 			        <td><%=phMap.get("MEMBER_ID") %></td> 
 			        <td>
-			        <%=phMap.get("P_HELP_TITLE") %>
+			        <%=phMap.get("P_HELP_TITLE")%>
 <%			      
-		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_PRIVATE"))) == 1){
+			if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_PRIVATE"))) == 1){
 %>
-			🔒
+				🔒
 <%
-		}
-%>			        </td>
+			}
+%>			        
+					</td>
 			        <td><%=phMap.get("P_HELP_DATE") %></td>
 			        <td>
 <%
-		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
+			if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
 %>
 			        <%= "답변완료" %>
 <%
-		}else if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 0){
+			}else if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 0){
 %>			
 					<%= "미답변" %>
 <%
-		}
+			}
 %>
 				  </td></tr>
 				  <tr class="panel">
 				    <td colspan="5"><%=phMap.get("P_HELP_CONTENT") %>
 <%
-		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
+			if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
 %>
 				  <hr>
 				   <%=phMap.get("P_HELP_ANSWER") %>
 <%
-		}
+			}
 %>
 				  </td>
 				</tr>
 <%
+		}
 	}
 %>
 			    </tbody>

@@ -1,3 +1,7 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,26 +45,46 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<style>
+body{
+  padding: 0px;
+  margin : 0px;
+}
+.videocont{
+  width: 100%;
+  height: 700px;
+  overflow : hidden;
+  margin: 0px auto;
+}
+video{
+  	width : 100%;
+  	
+}
+.videocont{
+	opacity : 95%;
+}
+</style>
 </head>
-
+<%
+	List<HashMap<String, String>> topList = (List<HashMap<String, String>>)request.getAttribute("topList");
+	List<HashMap<String, String>> monthList = (List<HashMap<String, String>>)request.getAttribute("monthList");
+	
+%>
 <body>
 	<jsp:include page="../header/header_main.jsp"></jsp:include>
-	<main id="main">
+	<main id="main"> <!-- ======= top10 Section ======= -->
 	<!-- ======= Hero Section ======= -->
 	<section id="hero" class="d-flex align-items-center">
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 order-1 order-lg-2 hero-img">
-					<img src="../mainImages/hwicon.png">
-				</div>
-			</div>
+ 		<div class="videocont">
+			  <video autoplay loop muted>
+			    <source src="../mp4/main.mp4">
+			  </video>
 		</div>
 
 	</section>
 	<!-- End Hero -->
 
-	<!-- ======= top10 Section ======= -->
 	<section id="top10" class="clients section-bg">
 		<div class="container">
 
@@ -68,18 +92,14 @@
 				<p>TOP10 여행지</p>
 			</div>
 
-			<div class="owl-carousel clients-carousel" data-aos="fade-up"
-				data-aos-delay="10">
-				<img src="../mainImages/clients/client-1.png" alt=""> <img
-					src="../mainImages/clients/client-2.png" alt=""> <img
-					src="../mainImages/clients/client-3.png" alt=""> <img
-					src="../mainImages/clients/client-4.png" alt=""> <img
-					src="../mainImages/clients/client-5.png" alt=""> <img
-					src="../mainImages/clients/client-6.png" alt=""> <img
-					src="../mainImages/clients/client-7.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt="">
+			<div class="owl-carousel clients-carousel" data-aos="fade-up" data-aos-delay="10">
+<%
+			for(HashMap<String, String> map : topList){
+%>
+			<a href='../prod/SelectProd.do?prod_no=<%= String.valueOf(map.get("PROD_NO")) %>'><img src="../images/attraction/<%=map.get("ATTRACTION_PHOTO") %>" alt="img" title="<%=map.get("ATTRACTION_NAME")%>"></a>
+<% 
+			}
+%>
 			</div>
 
 		</div>
@@ -89,50 +109,24 @@
 		<div class="container">
 
 			<div class="section-title" data-aos="fade-up">
-				<p>추천 여행지</p>
+				<p>이달의 여행지</p>
 			</div>
 
-			<div class="owl-carousel clients-carousel" data-aos="fade-up"
-				data-aos-delay="10">
-				<img src="../mainImages/clients/client-1.png" alt=""> <img
-					src="../mainImages/clients/client-2.png" alt=""> <img
-					src="../mainImages/clients/client-3.png" alt=""> <img
-					src="../mainImages/clients/client-4.png" alt=""> <img
-					src="../mainImages/clients/client-5.png" alt=""> <img
-					src="../mainImages/clients/client-6.png" alt=""> <img
-					src="../mainImages/clients/client-7.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt="">
+			<div class="owl-carousel clients-carousel" data-aos="fade-up" data-aos-delay="10">
+<%
+			for(HashMap<String, String> map : monthList){
+%>
+			<a href='../prod/SelectProd.do?prod_no=<%= String.valueOf(map.get("PROD_NO")) %>'><img src="../images/attraction/<%=map.get("ATTRACTION_PHOTO") %>" alt="img" title="<%=map.get("ATTRACTION_NAME")%>"></a>
+<% 
+			}
+%>
 			</div>
 
 		</div>
 	</section>
-	<!-- End recommend Section --> <!-- ======= job Section ======= -->
-	<section id="job" class="clients section-bg">
-		<div class="container">
-
-			<div class="section-title" data-aos="fade-up">
-				<p>직업별 추천 여행지</p>
-			</div>
-
-			<div class="owl-carousel clients-carousel" data-aos="fade-up"
-				data-aos-delay="10">
-				<img src="../mainImages/clients/client-1.png" alt=""> <img
-					src="../mainImages/clients/client-2.png" alt=""> <img
-					src="../mainImages/clients/client-3.png" alt=""> <img
-					src="../mainImages/clients/client-4.png" alt=""> <img
-					src="../mainImages/clients/client-5.png" alt=""> <img
-					src="../mainImages/clients/client-6.png" alt=""> <img
-					src="../mainImages/clients/client-7.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt=""> <img
-					src="../mainImages/clients/client-8.png" alt="">
-			</div>
-
-		</div>
-	</section>
-	<!-- End job Section --> <jsp:include page="../footer/footer.jsp"></jsp:include>
+	<!-- End recommend Section -->
+	
+	 <jsp:include page="../footer/footer.jsp"></jsp:include>
 	</main>
 	<!-- End #main -->
 
@@ -147,6 +141,7 @@
 	<script src="../mainVendor/venobox/venobox.min.js"></script>
 	<script src="../mainVendor/owl.carousel/owl.carousel.min.js"></script>
 	<script src="../mainVendor/aos/aos.js"></script>
+	<script src="../js/sb-admin-2.min.js"></script>
 
 	<!-- Template Main JS File -->
 	<script src="../js/mainMain.js"></script>

@@ -85,5 +85,38 @@
 		 where a.guide_no = b.guide_no
 		   and b.prod_no = #prod_no#
 	</select>
+	
+	<select id="selectTopProd" resultClass="java.util.HashMap">
+	  select a.prod_no, b.attraction_no, b.attraction_name, b.attraction_photo
+		  from (select a.prod_no, rn, min(attraction_no) as attraction_no
+		  from
+		  (select * from(select prod_no, rank () over(order by prod_views desc, prod_no) as rn from prod) where rn between 1 and 10) a,
+		  relationship b
+		  where a.prod_no = b.prod_no
+		  group by a.prod_no, rn
+		  order by rn) a, attraction b
+		  where a.attraction_no = b.attraction_no
+		  order by rn
+	</select>
+	
+	<select id="selectMonthProd" resultClass="java.util.HashMap">
+		select a.prod_no, b.attraction_no, b.attraction_name, b.attraction_photo
+  		  from (select a.prod_no, min(attraction_no) as attraction_no
+		  from
+		  (select * from prod where month_destination = 1) a,
+		  relationship b
+		  where a.prod_no = b.prod_no
+		  group by a.prod_no) a, attraction b
+		  where a.attraction_no = b.attraction_no
+	</select>
+	
+	<select id="selectWishCnt" parameterClass="int" resultClass="int">
+		SELECT COUNT(*) AS CNT FROM WISHLIST WHERE PROD_NO = #prod_no#
+	</select>
+	
+	<update id="updateViews" parameterClass="int">
+		update prod set prod_views = prod_views + 1
+		  where prod_no = #prod_no#
+	</update>
 </sqlMap>
 
