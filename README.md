@@ -34,25 +34,33 @@ PROJECT HELLOWORLD
 ### v1.03 2021_03_05
 
 ### firstPage
-
 - 회원가입 daum API 연동
 - 회원가입 db 연동
+
+### prodPage
+- 상품 목록
+- 상품 상세페이지 링크
+- 상품 등록페이지, 상품 등록
+
+### myPage
+- 내 정보 보기
+- 내 정보 수정
+
 
 ### v1.04 2021_03_08
 
 ### merge
-
 - myPage_member/guide/admin
 - prodPage_member/guide/admin
 
 ### prodPage
-
 - tripPage add
 
 ### error
-
 1. sign_up
 2. help_borad_write
 3. write_button_modal
 
 ## TEAMMATES
+=======
+
