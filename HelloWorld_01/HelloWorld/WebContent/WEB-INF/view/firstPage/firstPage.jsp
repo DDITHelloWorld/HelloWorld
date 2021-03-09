@@ -21,7 +21,8 @@
     <link href="../css/coming-soon.min.css" rel="stylesheet">
     <link href="../css/signUp_modal.css" rel="stylesheet">
 </head>
-
+<style>
+</style>
 <body>
 
     <div class="overlay"></div>
@@ -75,23 +76,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="pwd">비밀번호</label>
+                            <label class="control-label col-sm-2" for="pwd">비밀번호</label> 
                             <div class="col-sm-3">
                                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="member_password" value="">
                             </div>
+                            <button class="btn btn-success" id = "pass_toggle" type="button">(•_•)</button>
                             <div class="msg"></div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="pwd2">비밀번호확인</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="pwd2" placeholder="Enter password" value="">
+                                <input type="password" class="form-control" id="pwd2" placeholder="Enter password" value="">
                             </div>
                             <div class="msg"></div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="name">이름</label>
+                            <label class="control-label col-sm-2" for="name">이름</label> 
                             <div class="col-sm-3">
                                 <input type="text" class="form-control" id="name" placeholder="Enter name" name="member_name" value="">
                             </div>
@@ -99,7 +101,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="hp">전화번호</label>
+                            <label class="control-label col-sm-2" for="hp">전화번호</label> 
                             <div class="col-sm-3">
                                 <input type="text" class="form-control" id="hp" placeholder="123-1234-1234" name="member_phone" value="">
                             </div>
@@ -187,9 +189,11 @@
 <script src="../js/coming-soon.min.js"></script>
 <script src="../js/memberfunc.js"></script>
 <script src='../js/helloWorld.js'></script>
+<script src='../js/formcheck.js'></script>
 		
 <script type="text/javascript">
 $(function() {
+	//// 로그인
     $("#loginId").val("");
     $("#loginPassword").val("");
     
@@ -197,16 +201,31 @@ $(function() {
     // 결과값에 따라 > 셋팅을 해주거나 틀릴경우 alert
     $('#submit-button').on('click', function() {
         console.log($("#loginId").val())
-
         alert_check = 1;
         alert_check = <%= request.getAttribute("alert") %> ;
         if (alert_check == 0) {
             alert("아이디 혹은 비밀번호를 잘못 입력하셨습니다.")
         }
     })
+    // 로그인 end
     
     ////////////////////////////////////////////////////////
     // 회원 가입 버튼 클릭 처리
+	cnt = 0;
+	$("#pass_toggle").on("click", function(){
+		event.preventDefault();
+		console.log($("#pwd").prop('type'));
+		if(($("#pwd").prop('type')) == "password"){
+			$("#pwd").attr('type', 'text');
+			$("#pwd2").attr('type', 'text');
+			$("#pass_toggle").text("(-_-)");
+		}else{
+			$("#pwd").attr('type', 'password');
+			$("#pwd2").attr('type', 'password');
+			$("#pass_toggle").text("(•_•)");
+		}
+	})
+	
     // 정규식
     // id 체크
     $('#id').on('keyup', function() {
@@ -227,6 +246,7 @@ $(function() {
         nameValue = $('#name').val().trim();
         if (nameValue.length < 2 || nameValue.length > 12) {
             nopro(this, "이름은 2글자 이상 적어야 합니다.");
+            
             return;
         }
         regname = /^[가-힣a-zA-Z]{2,12}$/;
@@ -239,7 +259,7 @@ $(function() {
     // 전화번호
     $('#hp').on('keyup', function() {
         hpValue = $(this).val().trim();
-        reghp = /\d{3}-\d{4}-\d{4}/;
+        reghp = /^\d{3}-\d{4}-\d{4}/;
         if (reghp.test(hpValue)) {
             okpro(this);
         } else {
@@ -247,7 +267,7 @@ $(function() {
         }
     })
     // 이메일
-    $("#mail").on("keyup", function() {
+    $("#email").on("keyup", function() {
         val = $(this).val().trim();
         reg = /^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z]+(\.[a-zA-Z0-9]+){1,2}$/
         if (reg.test(val)) {
@@ -299,6 +319,7 @@ $(function() {
     })
     ///////////////////////////////////////////////////////////////////////////
     // id 중복 검사
+    id_dup =0;
     $('#idbtn').on('click', function() {
         idCheck();
     })
@@ -310,7 +331,15 @@ $(function() {
     $("#signUp_submit").on('click', function(){
     	event.preventDefault();
     	console.log("signUp_submit 클릭")
-    	signUp_submit();
+    	if(cnt == 1){
+	    	if(id_dup == 1){
+		    	signUp_submit();
+	    	}else{
+	    		alert("Id 중복 확인을 해주세요!!");
+	    	}
+    	}else{
+	    	alert("양식에 맞게 작성해 주세요!!")
+    	}
     })
 })
 </script>

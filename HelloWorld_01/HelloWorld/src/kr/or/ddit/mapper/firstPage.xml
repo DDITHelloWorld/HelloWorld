@@ -11,9 +11,8 @@
    		   AND member_password=#member_password#
 	</select>
 	
-	
 	<select id="idCheck_signUp" parameterClass="String" resultClass="int">
-		SELECT count(*) from id_info WHERE id = #id#
+		SELECT count(*) from id_info WHERE id_check = #id#
 	</select>
 	
 	<insert id="insertId_info" parameterClass="id_infoVo">
