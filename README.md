@@ -61,6 +61,12 @@ PROJECT HELLOWORLD
 2. help_borad_write
 3. write_button_modal
 
+### v1.04 2021_03_09
+
+## 회원가입
+- Sign_up 오류 수정 및 추가
+
+
+
 ## TEAMMATES
-=======
 
