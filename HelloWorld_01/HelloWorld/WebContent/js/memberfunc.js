@@ -8,6 +8,7 @@ function okpro(vinput) {
       
       // 올바른 형식이 아닙니다 영역 지우기
       $(vinput).parents('.form-group').find('.msg').html("");
+      cnt = 1;
    }
    
    function nopro(vinput, text) {
@@ -16,6 +17,7 @@ function okpro(vinput) {
       $(vinput).parents('.form-group').find('.msg').css('color', 'red');
       
       $(vinput).parents('.form-group').find('.sp').empty();
+      cnt = 0;
    }
 
 function idCheck() {
@@ -25,12 +27,14 @@ function idCheck() {
 		alert("id를 입력하세요.");
 		return false;
 	}
+	
 	$.post(
 		'/HelloWorld/firstPage/idCheck.do',
 		{ "id" : idvalue },
 		function(data) {
 			if(data == "OK")
 			$('#idspan').html("사용가능한 ID").css('color', 'red');
+			id_dup = 1;
 			
 			alert(data);
 		},
@@ -38,12 +42,15 @@ function idCheck() {
 	)
 
 /*	$.ajax({
-
-		url: '/member/ID.do',
+		url: '/HelloWorld/firstPage/idCheck.do',
 		type: 'post',
 		data: '/member/ID.do',
-		success: function(res) {
-			$('#idspan').html(res.sw).css('color', 'red');
+		success: function(data) {
+			if(data == "OK")
+			$('#idspan').html("사용가능한 ID").css('color', 'red');
+			id_dup = 1;
+			
+			alert(data);
 		},
 		error: function(xhr) {
 			alert("상태 : " + xhr.status);
