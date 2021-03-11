@@ -1,3 +1,5 @@
+<%@page import="kr.or.ddit.vo.MemberVO"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="kr.or.ddit.vo.GuideVO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.vo.Prod_insertVO"%>
@@ -13,7 +15,7 @@
 <title>상품 상세</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicons -->
 <link href="../prodImages/hwicon.png" rel="icon">
 <link href="../prodImages/apple-touch-icon.png" rel="apple-touch-icon">
@@ -42,9 +44,11 @@
 <link href="../css/mainStyle.css" rel="stylesheet">
 <link href="../css/headerFooterStyle.css" rel="stylesheet">
 <link href="../css/prodStyle.css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+
 <style type="text/css">
 #ensign-nivoslider {
-	height :750px;
+	height :800px;
 	
 }
 .contact-inner .col-md-6{
@@ -58,6 +62,39 @@
 .guideForm{
 	text-align: left;
 }
+
+.rating{
+	color : #4169E1;
+}
+.accordion {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+table {
+width :1140px;
+}
+
+table tr:last-chlid td{
+	width :100%;
+}
+
 </style>
 <!-- =======================================================
   * Template Name: eBusiness - v2.2.1
@@ -69,7 +106,29 @@
 	List<Prod_insertVO> list = (List<Prod_insertVO>)request.getAttribute("Prod_insertVo");
 	String detail = list.get(0).getProd_details().replaceAll("\r", "").replaceAll("\n", "<br>");
 	GuideVO guideVo = (GuideVO)request.getAttribute("GuideVo");
+	List<HashMap<String, Object>> reList = (List<HashMap<String, Object>>)request.getAttribute("reList");
+	List<HashMap<String, Object>> phList = (List<HashMap<String, Object>>)request.getAttribute("phList");
+	int authority = Integer.parseInt(String.valueOf(request.getSession().getAttribute("authority")));
+	int wishCnt = Integer.parseInt(String.valueOf(request.getAttribute("wishCnt")));
 %>
+<script>
+$(function(){
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var panel = this.nextElementSibling;
+	    if (panel.style.display === "revert") {
+	      panel.style.display = "none";
+	    } else {
+	      panel.style.display = "revert";
+	    }
+	  });
+	}
+})
+</script>
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
@@ -125,6 +184,7 @@
 								<li><i class="fa fa-check"></i> 가격 : <%=list.get(0).getProd_price() %></li>
 								<li><i class="fa fa-check"></i> 여행 날짜 : <%=list.get(0).getProd_travel_date() %></li>
 								<li><i class="fa fa-check"></i> 최대 인원 : <%=list.get(0).getProd_travel_max()%> </li>
+								<li>❤ <%=wishCnt%> </li>
 								<hr>
 								<h6>여행지</h6>
 <%
@@ -142,233 +202,176 @@
 			</div>
 		</div>
 	</div>
-	<!-- End About Section --> <!-- ======= Services Section ======= -->
+	<!-- End About Section -->
+	<hr>
+	 <!-- ======= Services Section ======= -->
 	<div id="services" class="services-area area-padding">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="section-headline services-head text-center">
-						<h2>Review</h2><br>
-						<h2>리뷰 게시판 와야함</h2>
+						<h2>Review</h2><br><br><br>
 					</div>
 				</div>
 			</div>
 			<div class="row text-center">
-				<!-- Start Left services -->
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="about-move">
-						<div class="services-details">
-							<div class="single-services">
-								<a class="services-icon" href="#"> <i class="fa fa-code"></i>
-								</a>
-								<h4>Expert Coder</h4>
-								<p>will have to make sure the prototype looks finished by
-									inserting text or photo.make sure the prototype looks finished
-									by.</p>
-							</div>
-						</div>
-						<!-- end about-details -->
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="about-move">
-						<div class="services-details">
-							<div class="single-services">
-								<a class="services-icon" href="#"> <i
-									class="fa fa-camera-retro"></i>
-								</a>
-								<h4>Creative Designer</h4>
-								<p>will have to make sure the prototype looks finished by
-									inserting text or photo.make sure the prototype looks finished
-									by.</p>
-							</div>
-						</div>
-						<!-- end about-details -->
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<!-- end col-md-4 -->
-					<div class=" about-move">
-						<div class="services-details">
-							<div class="single-services">
-								<a class="services-icon" href="#"> <i
-									class="fa fa-wordpress"></i>
-								</a>
-								<h4>Wordpress Developer</h4>
-								<p>will have to make sure the prototype looks finished by
-									inserting text or photo.make sure the prototype looks finished
-									by.</p>
-							</div>
-						</div>
-						<!-- end about-details -->
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<!-- end col-md-4 -->
-					<div class=" about-move">
-						<div class="services-details">
-							<div class="single-services">
-								<a class="services-icon" href="#"> <i
-									class="fa fa-camera-retro"></i>
-								</a>
-								<h4>Social Marketer</h4>
-								<p>will have to make sure the prototype looks finished by
-									inserting text or photo.make sure the prototype looks finished
-									by.</p>
-							</div>
-						</div>
-						<!-- end about-details -->
-					</div>
-				</div>
-				<!-- End Left services -->
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<!-- end col-md-4 -->
-					<div class=" about-move">
-						<div class="services-details">
-							<div class="single-services">
-								<a class="services-icon" href="#"> <i
-									class="fa fa-bar-chart"></i>
-								</a>
-								<h4>Seo Expart</h4>
-								<p>will have to make sure the prototype looks finished by
-									inserting text or photo.make sure the prototype looks finished
-									by.</p>
-							</div>
-						</div>
-						<!-- end about-details -->
-					</div>
-				</div>
-				<!-- End Left services -->
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<!-- end col-md-4 -->
-					<div class=" about-move">
-						<div class="services-details">
-							<div class="single-services">
-								<a class="services-icon" href="#"> <i class="fa fa-ticket"></i>
-								</a>
-								<h4>24/7 Support</h4>
-								<p>will have to make sure the prototype looks finished by
-									inserting text or photo.make sure the prototype looks finished
-									by.</p>
-							</div>
-						</div>
-						<!-- end about-details -->
-					</div>
-				</div>
+			  <!-- REVIEW_NO | MEMBER_ID | REVIEW_SCORE | REVIEW_CONTENT | REVIEW_DATE -->
+			  <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>번호</th>
+			        <th>회원 ID</th>
+			        <th>별점</th>
+			        <th>내용</th>
+			        <th>작성 날짜</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+<%
+	for(HashMap<String, Object> map : reList){
+%>
+			      <tr>
+			        <td><%=String.valueOf(map.get("REVIEW_NO")) %></td>
+			        <td><%=map.get("MEMBER_ID") %></td>
+			        <td>
+<%	for(int i = 0; i <= Integer.parseInt(String.valueOf(map.get("REVIEW_SCORE"))) - 1; i++){
+		
+%>
+					        <span class="rating">★</span>
+<%	
+}
+	for(int i = 0; i <= 4 - Integer.parseInt(String.valueOf(map.get("REVIEW_SCORE"))); i++){
+%>
+					        <span class="rating">☆</span>
+<%				    
+	}
+%>			        
+			        </td>
+			        <td><%=map.get("REVIEW_CONTENT") %></td>
+			        <td><%=map.get("REVIEW_DATE") %></td>
+			      </tr>
+<%
+	}
+%>				
+			    </tbody>
+			  </table>
+				
 			</div>
 		</div>
 	</div>
 	<!-- End Services Section --> 
-	
+	<hr>
 	<!-- ======= Team Section ======= -->
 	<div id="team" class="our-team-area area-padding">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="section-headline text-center">
-						<h2>Q & A</h2><br>
-						<h2>Q & A 게시판 와야 함</h2>
+						<h2>Q & A</h2><br><br>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="single-team-member">
-						<div class="team-img">
-							<a href="#"> <img src="../prodImages/team/1.jpg" alt="">
-							</a>
-							<div class="team-social-icon text-center">
-								<ul>
-									<li><a href="#"> <i class="fa fa-facebook"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-twitter"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-instagram"></i>
-									</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content text-center">
-							<h4>Jhon Mickel</h4>
-							<p>Seo</p>
-						</div>
-					</div>
-				</div>
-				<!-- End column -->
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="single-team-member">
-						<div class="team-img">
-							<a href="#"> <img src="../prodImages/team/2.jpg" alt="">
-							</a>
-							<div class="team-social-icon text-center">
-								<ul>
-									<li><a href="#"> <i class="fa fa-facebook"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-twitter"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-instagram"></i>
-									</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content text-center">
-							<h4>Andrew Arnold</h4>
-							<p>Web Developer</p>
-						</div>
-					</div>
-				</div>
-				<!-- End column -->
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="single-team-member">
-						<div class="team-img">
-							<a href="#"> <img src="../prodImages/team/3.jpg" alt="">
-							</a>
-							<div class="team-social-icon text-center">
-								<ul>
-									<li><a href="#"> <i class="fa fa-facebook"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-twitter"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-instagram"></i>
-									</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content text-center">
-							<h4>Lellien Linda</h4>
-							<p>Web Design</p>
-						</div>
-					</div>
-				</div>
-				<!-- End column -->
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="single-team-member">
-						<div class="team-img">
-							<a href="#"> <img src="../prodImages/team/4.jpg" alt="">
-							</a>
-							<div class="team-social-icon text-center">
-								<ul>
-									<li><a href="#"> <i class="fa fa-facebook"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-twitter"></i>
-									</a></li>
-									<li><a href="#"> <i class="fa fa-instagram"></i>
-									</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="team-content text-center">
-							<h4>Jhon Powel</h4>
-							<p>Seo Expert</p>
-						</div>
-					</div>
-				</div>
-				<!-- End column -->
+			  <!-- p_help_no | member_id | (만약 비밀이면 임티 - p_help_private)p_help_title | p_help_date | p_help_state -->
+			  <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>번호</th>
+			        <th>회원 ID</th>		  
+			        <th>제목</th>
+			        <th>작성 날짜</th>
+			        <th>상태</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+<%
+	HashMap hash = new HashMap();
+
+	// 1. 상품주인 no와 작성자 memberNo를 변수에 담는다.
+	int ownerNo =guideVo.getGuide_no();//상품주인
+	// 2. 로그인한 memberNo 혹은 guideNo 변수를 담는다.
+	GuideVO login_guide = null;
+	MemberVO login_member = null;
+	if(authority == 1) {
+		login_guide = (GuideVO)request.getSession().getAttribute("loginVo");
+	}else {
+		login_member = (MemberVO)request.getSession().getAttribute("loginVo");
+	}
+	
+	// 3. 출력 시 서로 비교해준다.
+		
+	// 4. 같지 않을 경우 비밀글의 경우 readonly로 바꿔준다.
+	
+	for(HashMap<String, Object> phMap : phList){
+		
+		
+		
+		
+		System.out.println("이부분인가?!"+phMap.get("MEMBER_NO"));
+		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_PRIVATE"))) == 1){
+			// 비밀글일 때 비교 시작
+			if(Integer.parseInt(String.valueOf(phMap.get("MEMBER_NO"))) == login_member.getMember_no()){
+%>
+			      <tr class="accordion" >
+<%
+			}else{
+%>
+				  <tr>
+<%	
+			}
+		}else{
+%>
+			      <tr class="accordion" >
+<%
+		}
+%>
+			        <td><%=phMap.get("P_HELP_NO") %></td>
+			        <td><%=phMap.get("MEMBER_ID") %></td> 
+			        <td>
+			        <%=phMap.get("P_HELP_TITLE") %>
+<%			      
+		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_PRIVATE"))) == 1){
+%>
+			🔒
+<%
+		}
+%>			        </td>
+			        <td><%=phMap.get("P_HELP_DATE") %></td>
+			        <td>
+<%
+		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
+%>
+			        <%= "답변완료" %>
+<%
+		}else if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 0){
+%>			
+					<%= "미답변" %>
+<%
+		}
+%>
+				  </td></tr>
+				  <tr class="panel">
+				    <td colspan="5"><%=phMap.get("P_HELP_CONTENT") %>
+<%
+		if(Integer.parseInt(String.valueOf(phMap.get("P_HELP_STATE"))) == 2){
+%>
+				  <hr>
+				   <%=phMap.get("P_HELP_ANSWER") %>
+<%
+		}
+%>
+				  </td>
+				</tr>
+<%
+	}
+%>
+			    </tbody>
+			  </table>			
 			</div>
 		</div>
 	</div>
 	<!-- End Team Section -->
-	
+	<hr>
 	<!-- ======= Contact Section ======= -->
 	<div id="contact" class="contact-area">
 		<div class="contact-inner area-padding">
@@ -403,12 +406,12 @@
 						  <p id="star_grade">
 <%	for(int i = 0; i <= guideVo.getGuide_rating() - 1; i++){
 %>
-					        <a href="#">★</a>
+					        <span class="rating">★</span>
 <%	
 }
 	for(int i = 0; i <= 5 - guideVo.getGuide_rating() - 1; i++){
 %>
-					        <a href="#">☆</a>
+					        <span class="rating">☆</span>
 <%				    
 	}
 %>

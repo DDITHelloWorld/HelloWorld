@@ -36,6 +36,7 @@
 	 <typeAlias alias = "id_infoVo" type = "kr.or.ddit.vo.Id_infoVO"></typeAlias>
 	 <typeAlias alias = "wishListVo" type="kr.or.ddit.vo.WishListVO"/>
 	 <typeAlias alias = "reviewVo" type="kr.or.ddit.vo.ReviewVO"/>
+	 <typeAlias alias = "pHelpVo" type="kr.or.ddit.vo.ProdHelpVO"/>
 	 <typeAlias alias = "mpoVo" type="kr.or.ddit.vo.MyPageOrderVO"/>
 	 <typeAlias alias = "orderVo" type="kr.or.ddit.vo.OrderVO"/>
 	 <typeAlias alias = "adminVo" type="kr.or.ddit.vo.AdminVO"/>
@@ -64,5 +65,6 @@
 	 <sqlMap resource = "kr/or/ddit/mapper/review.xml"/>
 	 <sqlMap resource = "kr/or/ddit/mapper/helpBoard.xml"/>
 	 <sqlMap resource = "kr/or/ddit/mapper/prod.xml"/>
+	 <sqlMap resource = "kr/or/ddit/mapper/prodHelp.xml"/>
 	
  </sqlMapConfig>

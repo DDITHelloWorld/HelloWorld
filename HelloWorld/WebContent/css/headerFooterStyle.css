@@ -238,6 +238,11 @@
   right: 15px;
 }
 
+.second-nav a{
+	font-size : 1.8em;
+	padding : 0px 80px;
+}
+
 @media (max-width: 1366px) {
   .nav-menu .drop-down .drop-down ul {
     left: -90%;

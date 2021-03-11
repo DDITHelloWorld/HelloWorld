@@ -8,8 +8,6 @@ writeHelpBoard = function(){
 		data : {},
 		dataType : 'html',
 		success : function(res){
-			alert("성공");
-			console.log(res);
 			$('#main').empty();
 			$('#main').append(res);
 		},
@@ -27,8 +25,7 @@ writeHelpBoard_submit =function(){
 		data : {},
 		dataType : 'html',
 		success : function(res){
-			alert("성공");
-			console.log(res);
+			alert("글이 등록되었습니다.")
 			$('#main').empty();
 			$('#main').append(res);
 		},
@@ -47,7 +44,6 @@ myQnaHelpBoard = function(){
 		data : {},
 		dataType : 'html',
 		success : function(res){
-			alert("성공");
 		
 		$('#main').empty();
 		$('#main').append(res);
@@ -67,7 +63,6 @@ mostQnaHelpBoard = function(){
 		data : {},
 		dataType : 'html',
 		success : function(res){
-			alert("성공");
 		
 		$('#main').empty();
 		$('#main').append(res);
@@ -87,7 +82,7 @@ viewHelpBoard = function(){
 		dataType : 'html',
 		success : function(res) {
 			// alert출력
-			alert("성공!")
+//			alert("성공!")
 
 			// 출력
 			console.log(res);

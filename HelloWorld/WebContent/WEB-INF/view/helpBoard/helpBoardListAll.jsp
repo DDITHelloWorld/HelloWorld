@@ -147,7 +147,7 @@ form{
             <th>번호</th>
             <th>카테고리</th>
             <th>제목</th>
-            <th>상태</th>
+            <th>등록일</th>
          </tr>
       </thead>
       <% 
@@ -158,14 +158,16 @@ form{
       <tr><td colspan="4">게시글이 없습니다.</td></tr>
       <%
       	}else{
+      		int cnt = 0;
       		for(HelpBoardVO helpBoardVo : helpList){
+      		cnt++;
       %>
       
       <tr>
-      		<td><%=helpBoardVo.getMember_no() %></td>
+      		<td><%=cnt%></td>
      		<td><%=helpBoardVo.getHelp_category() %></td>
      		<td><%=helpBoardVo.getHelp_title() %></td>
-     		<td><%=helpBoardVo.getHelp_state() %></td>
+     		<td><%=helpBoardVo.getHelp_date() %></td>
      </tr>
      		
       <%
@@ -200,13 +202,10 @@ form{
 		
 		$('#mostQna').on('click',function(){
 				mostQnaHelpBoard();
-			
 		})
-		
 	})
 	
   $(function(){
-	  
 	  $('#myQna').on('click', function(){
 			myQnaHelpBoard();  
 	  })
@@ -214,8 +213,6 @@ form{
   
   $(function(){
 	  $('#btnForm').on('click','#writeBtn', function(){
-		  alert("aa");
-		  console.log("aaaaa");
 		  writeHelpBoard();
 	  })
   })

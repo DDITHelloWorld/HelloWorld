@@ -218,7 +218,7 @@ div#preloader {
   content: "";
   height: 100%;
   left: 0;
-  opacity: 0.5;
+  opacity: 0.2;
   position: absolute;
   top: 0;
   width: 100%;
@@ -582,6 +582,7 @@ preview-2
 .niceties.preview-2 {
   position: relative;
   height: 100%;
+  background-image: linear-gradient(#AECDFF, #F9F9F9);
 }
 
 /*--------------------------------------------------------------
