@@ -67,7 +67,9 @@ PROJECT HELLOWORLD
 - Sign_up 오류 수정 및 추가
 
 
+## INDEX
+![image](https://user-images.githubusercontent.com/24990542/124079491-2f5b8f80-da84-11eb-94c7-70bfc1ddd3ec.png)
+
 
 ## TEAMMATES
 
-![image](https://user-images.githubusercontent.com/24990542/124079491-2f5b8f80-da84-11eb-94c7-70bfc1ddd3ec.png)
