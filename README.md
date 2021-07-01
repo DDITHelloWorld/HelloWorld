@@ -4,6 +4,10 @@
 
 PROJECT HELLOWORLD
 
+## INDEX
+
+![image](https://user-images.githubusercontent.com/24990542/124079687-6e89e080-da84-11eb-8cc5-2ce65a37f87f.png)
+
 ## 개요
 
 - 랜선 여행은 집에서도 코로나와 같은 위험요소 없이
@@ -65,11 +69,6 @@ PROJECT HELLOWORLD
 
 ## 회원가입
 - Sign_up 오류 수정 및 추가
-
-
-## INDEX
-![image](https://user-images.githubusercontent.com/24990542/124079491-2f5b8f80-da84-11eb-94c7-70bfc1ddd3ec.png)
-
 
 ## TEAMMATES
 
